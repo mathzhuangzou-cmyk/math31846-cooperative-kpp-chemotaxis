@@ -1,0 +1,58 @@
+[
+  {
+    "id": "F01",
+    "status": "unresolved_original_table",
+    "subject": "Table 3",
+    "finding": "No supporting computation trail for the original spatial-refinement entries found in the supplied archive.",
+    "action": "Replace with the independently recomputed table; historical cause remains unknown."
+  },
+  {
+    "id": "F02",
+    "status": "reproduced",
+    "subject": "Table 2",
+    "finding": "Original advanced script reproduces all four archived amplitudes; max absolute difference 3.3430203050244245e-13.",
+    "evidence": "audit_evidence/archive_comparison.json"
+  },
+  {
+    "id": "F03",
+    "status": "fixed_in_copy",
+    "subject": "IMEX growth-rate diagnostics",
+    "finding": "Old scalar backward-Euler formula was inconsistent with the actual split. Paper Table 4 already uses correct values.",
+    "evidence": "patched_project/results_task17/time_convergence.csv"
+  },
+  {
+    "id": "F04",
+    "status": "fixed_in_copy",
+    "subject": "Precision default",
+    "finding": "Small near-onset growth/decay benchmark is inaccurate in float32; corrected default is float64.",
+    "evidence": "audit_evidence/solver_checks.json"
+  },
+  {
+    "id": "F05",
+    "status": "fixed_in_copy",
+    "subject": "Terminal diagnostics",
+    "finding": "Recompute residual and elapsed time at the true final state; add a tolerance-status flag.",
+    "evidence": "audit_evidence/rechecked/patched_checks.json"
+  },
+  {
+    "id": "F06",
+    "status": "verified_current_paper",
+    "subject": "Research figures",
+    "finding": "Current PDF embeds the exact archived rational-dispersion and advanced-branch images.",
+    "evidence": "audit_evidence/manuscript_figure_pixel_matches.json"
+  },
+  {
+    "id": "F07",
+    "status": "supplementary_checks_completed",
+    "subject": "Concern 3",
+    "finding": "At delta=0.00125, extending T=500 to T=8000 changes amplitude by 0.0431512%; longer-time dt-halving and fixed-amplitude initialization checks supplied.",
+    "evidence": "extended_results/extended_checks.csv"
+  },
+  {
+    "id": "F08",
+    "status": "fixed_in_copy",
+    "subject": "Output provenance and spatial norm",
+    "finding": "Tables read generated data; weighted joint perturbation norm evaluated on common fine grid; metadata added.",
+    "evidence": "code_corrections.patch"
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "delta_chi": 0.00125,
+    "archive_A": 0.024304442972064487,
+    "replayed_A": 0.024304442971761167,
+    "absolute_difference": 3.0331986922149667e-13
+  },
+  {
+    "delta_chi": 0.0025,
+    "archive_A": 0.03434466697019893,
+    "replayed_A": 0.03434466696986463,
+    "absolute_difference": 3.3430203050244245e-13
+  },
+  {
+    "delta_chi": 0.005,
+    "archive_A": 0.04848066781975403,
+    "replayed_A": 0.04848066781944423,
+    "absolute_difference": 3.097938572338421e-13
+  },
+  {
+    "delta_chi": 0.01,
+    "archive_A": 0.06831657936098606,
+    "replayed_A": 0.06831657936074223,
+    "absolute_difference": 2.438327317833e-13
+  }
+]

@@ -1,0 +1,22 @@
+Math-31846 GitHub 仓库与版本引用说明
+
+仓库地址：https://github.com/mathzhuangzou-cmyk/math31846-cooperative-kpp-chemotaxis
+本文件对应仓库初次上传。固定版本应使用上传后核验通过的完整提交号及其永久链接；本仓库尚未创建 release tag 或 DOI。本次上传没有修改或提交论文和审稿回复文件。
+
+来源与边界
+1. 科研脚本、保存的数值结果和历史核查记录保持原样。README、中文说明和校验清单更新为仓库版本。
+2. docs/PACKAGE_VALIDATION.json 记录上传前的本地 ZIP 检查；其中 github_published=false 为历史状态，不是当前仓库可访问性的判断。
+3. 代码中的原始版本、修正版、独立复算版本各自保留；请按 README 对应到论文表格和图件。
+4. 未选择软件许可证，未创建发布标签，未申请 DOI；不要自行声称已有上述信息。
+5. GitHub 上传不等于期刊返修提交；若向期刊提供同版本 ZIP，应从固定提交下载并实际上传后再作相应陈述。
+
+上传核验后的论文可得性文字（使用前须填入真实的完整提交号）：
+No external empirical datasets were used. The numerical code, benchmark parameters, execution instructions and saved outputs supporting the computations in this article are publicly available at https://github.com/mathzhuangzou-cmyk/math31846-cooperative-kpp-chemotaxis, commit [VERIFIED FULL COMMIT SHA]. The original code snapshot, audited corrections and independent reproduction scripts are distinguished in the repository.
+
+上传核验后的审稿回复 R1-M3（使用前须填入真实的完整提交号）：
+We have made the numerical code, benchmark settings, execution instructions and saved outputs publicly available at https://github.com/mathzhuangzou-cmyk/math31846-cooperative-kpp-chemotaxis, commit [VERIFIED FULL COMMIT SHA]. The repository contains the original code snapshot, the audited corrections and the independent reproduction scripts, with a README identifying the scripts and outputs corresponding to each reported calculation.
+
+仅当同版本 ZIP 已实际随返修稿提交时，才增加：
+The same version is also provided as supplementary material with the revised manuscript.
+
+完成论文和回复文件更新后，删除相关待办提示；若分页变化，应重新核对页码、行号及修改索引。仓库公开本身不等于审稿人已经接受复现结果；保持 Concern 1 和 Concern 3 的事实与解释边界。

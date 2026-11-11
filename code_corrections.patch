@@ -1,0 +1,510 @@
+--- original_code/1.py
++++ patched_project/1.py
+@@ -379,7 +379,7 @@
+         mode_index = torch.fft.fftfreq(
+             self.M, d=1.0 / self.M, device=device, dtype=dtype
+         )
+-        self.dealias = (torch.abs(mode_index) <= self.M / 3.0).to(dtype)
++        self.dealias = (torch.abs(mode_index) < self.M / 3.0).to(dtype)
+ 
+         self._build_linear_inverse()
+ 
+@@ -505,6 +505,19 @@
+     if np.count_nonzero(mask) < 3:
+         return float("nan")
+     return float(np.polyfit(t[mask], np.log(a[mask]), 1)[0])
++
++
++def actual_imex_growth_rate(p, mu, chi, dt):
++    """Growth rate from the amplification matrix of this actual splitting."""
++    implicit = np.array([
++        [-p.d1*mu+p.r1-p.k12, p.k12, 0.0],
++        [p.k21, -p.d2*mu+p.r2-p.k21, 0.0],
++        [p.beta/p.tau, 0.0, -(p.Dw*mu+p.alpha)/p.tau],
++    ], dtype=float)
++    explicit = np.array([[-2*p.r1, 0.0, chi*mu],
++                         [0.0, -2*p.r2, 0.0], [0.0, 0.0, 0.0]])
++    G = np.linalg.solve(np.eye(3)-dt*implicit, np.eye(3)+dt*explicit)
++    return float(np.log(np.max(np.abs(np.linalg.eigvals(G))))/dt)
+ 
+ 
+ def threshold_crossing_run(
+@@ -521,12 +534,7 @@
+     chi = ratio * chi_T
+     lam_cont, eigenvector = dominant_linear_mode(p, mu_star, chi)
+ 
+-    # The IMEX treatment of the linear eigenvalue has amplification
+-    # g = 1/(1-dt*lambda), hence numerical linear rate:
+-    if 1.0 - solver.dt * lam_cont > 0.0:
+-        lam_imex = -math.log(1.0 - solver.dt * lam_cont) / solver.dt
+-    else:
+-        lam_imex = float("nan")
++    lam_imex = actual_imex_growth_rate(p, mu_star, chi, solver.dt)
+ 
+     mode = torch.cos(n_star * math.pi * solver.x / solver.L)
+     u = 1.0 + eps * eigenvector[0] * mode
+@@ -632,6 +640,10 @@
+             if residual < tolerance and elapsed_sim >= 5.0:
+                 break
+ 
++    # Recompute diagnostics at the actual final state even if no check fired.
++    elapsed_sim = (step + 1) * solver.dt
++    residual = solver.steady_residual(u, v, w, chi)
++    converged = bool(residual < tolerance and elapsed_sim >= 5.0)
+     amplitude = solver.cosine_amplitude(u, n_star, mean=1.0)
+ 
+     # Restrict profile to [0,L], including both endpoints.
+@@ -649,6 +661,7 @@
+         "A2_numeric": amplitude * amplitude,
+         "residual": residual,
+         "sim_time": elapsed_sim,
++        "residual_tolerance_met": converged,
+         "x": x_half,
+         "u": u_half,
+         "v": v_half,
+@@ -839,6 +852,7 @@
+                 ),
+                 "residual": r["residual"],
+                 "sim_time": r["sim_time"],
++                "residual_tolerance_met": r["residual_tolerance_met"],
+             }
+         )
+ 
+@@ -854,6 +868,7 @@
+             "delta_over_A2",
+             "residual",
+             "sim_time",
++            "residual_tolerance_met",
+         ],
+     )
+ 
+@@ -866,7 +881,7 @@
+     xline = np.linspace(0.0, max(x) * 1.05, 160)
+ 
+     plt.figure(figsize=(7.2, 5.0))
+-    plt.scatter(x, y, label="numerical steady states")
++    plt.scatter(x, y, label="terminal-time states")
+     plt.plot(xline, chi2_theory * xline, label="theory: chi2 A^2")
+     plt.plot(xline, slope_origin * xline, label="fit through origin")
+     plt.xlabel(r"$A^2$")
+@@ -885,9 +900,9 @@
+     plt.plot(last["x"], last["v"], label="v")
+     plt.plot(last["x"], last["w"], label="w")
+     plt.xlabel("x")
+-    plt.ylabel("stationary profile")
++    plt.ylabel("terminal profile")
+     plt.title(
+-        f"Relaxed stationary pattern, delta_chi={last['delta_chi']:.4g}"
++        f"Terminal pattern, delta_chi={last['delta_chi']:.4g}"
+     )
+     plt.legend()
+     plt.grid(True, alpha=0.25)
+@@ -930,7 +945,7 @@
+         "--dtype",
+         choices=["float32", "float64"],
+         default=None,
+-        help="Default: float32 for CUDA, float64 for CPU.",
++        help="Default: float64 on CPU and CUDA for near-onset diagnostics.",
+     )
+     parser.add_argument(
+         "--output-dir",
+@@ -960,7 +975,7 @@
+         device = torch.device("cpu")
+ 
+     if args.dtype is None:
+-        dtype = torch.float32 if device.type == "cuda" else torch.float64
++        dtype = torch.float64
+     else:
+         dtype = torch.float32 if args.dtype == "float32" else torch.float64
+ 
+@@ -1126,6 +1141,7 @@
+                     "A2_numeric": r["A2_numeric"],
+                     "residual": r["residual"],
+                     "sim_time": r["sim_time"],
++                    "residual_tolerance_met": r["residual_tolerance_met"],
+                 }
+                 for r in branch_runs
+             ]
+--- original_code/2.py
++++ patched_project/2.py
+@@ -148,8 +148,8 @@
+         0.005
+     ]:
+ 
+-        lam_imex = (
+-            -np.log(1-dt*lam)/dt
++        lam_imex = task16.actual_imex_growth_rate(
++            p, mode["mu_star"], chi, dt
+         )
+ 
+ 
+@@ -253,7 +253,7 @@
+ 
+ def spatial_resolution(device):
+ 
+-    print("\nRunning spatial resolution audit...")
++    print("\nListing grid sizes only (no PDE spatial-convergence test)...")
+ 
+ 
+     p = ModelParams()
+--- original_code/3.1.py
++++ patched_project/3.1.py
+@@ -114,7 +114,7 @@
+     )
+ 
+ 
+-    # True critical eigenvector
++    # Dominant eigenvector at the CURRENT chi, not necessarily chi_T
+     _, vec = dominant_linear_mode(
+         p,
+         (n_star*np.pi/solver.L)**2,
+@@ -254,6 +254,7 @@
+ 
+ 
+         ratio=delta/(A_num*A_num)
++        residual=solver.steady_residual(u,v,w,chi)
+ 
+ 
+         rows.append(
+@@ -262,7 +263,13 @@
+                 "A_initial":A0,
+                 "A_numeric":A_num,
+                 "delta_over_A2":ratio,
+-                "chi2_theory":chi2
++                "chi2_theory":chi2,
++                "dt":solver.dt,
++                "t_final":steps*solver.dt,
++                "FFT_points":solver.M,
++                "dtype":str(solver.dtype),
++                "initialization":"current_parameter_eigenvector_plus_critical_second_order",
++                "terminal_residual":residual
+             }
+         )
+ 
+--- original_code/4.1.py
++++ patched_project/4.1.py
+@@ -611,7 +611,7 @@
+     )
+ 
+     ax.set_ylabel(
+-        r"critical-mode amplitude"
++        r"linear-theory critical-mode amplitude"
+     )
+ 
+     ax.set_xlim(
+--- original_code/4.py
++++ patched_project/4.py
+@@ -36,7 +36,7 @@
+ 
+ 
+ # ============================================================
+-# Figure 1 placeholder
++# Figure 1: exact benchmark threshold
+ # ============================================================
+ 
+ def figure_dispersion():
+@@ -47,8 +47,8 @@
+ 
+     mu = np.linspace(0.05, 8.0, 500)
+ 
+-    # benchmark qualitative dispersion
+-    chi = chi_c + 0.15*(mu-mu_c)**2
++    # Exact model threshold; the previous parabola was only a schematic.
++    chi = (mu+1.0)*((0.2*mu+1.3)*(0.1*mu+1.0)-0.06)/(mu*(0.1*mu+1.0))
+ 
+     plt.figure(figsize=(6.5,4.5))
+ 
+@@ -111,7 +111,7 @@
+     )
+ 
+     plt.xlabel("time")
+-    plt.ylabel("critical amplitude")
++    plt.ylabel("linear-theory critical amplitude")
+ 
+     plt.legend()
+     plt.grid(True)
+--- original_code/5.py
++++ patched_project/5.py
+@@ -1,89 +1,25 @@
+-#!/usr/bin/env python
+-# -*- coding: utf-8 -*-
++#!/usr/bin/env python3
++"""Generate tables from model calculations and the actual branch CSV."""
++from pathlib import Path
++import csv, importlib.util, sys
+ 
+-"""
+-Task 1.8B - Final paper table generator
++HERE=Path(__file__).resolve().parent
++def main():
++    spec=importlib.util.spec_from_file_location('table_model',HERE/'1.py')
++    m=importlib.util.module_from_spec(spec);sys.modules['table_model']=m;spec.loader.exec_module(m)
++    p=m.ModelParams();c=m.continuous_critical_data(p);s=m.select_mode(10.,p,c['mu_c'])
++    branch=Path('results_task17B_advanced/branch_continuation_advanced.csv')
++    if not branch.exists():raise FileNotFoundError('Run 3.1.py first: '+str(branch))
++    rows=list(csv.DictReader(branch.open(encoding='utf-8')))
++    out=Path('tables_task18');out.mkdir(exist_ok=True)
++    with (out/'critical_parameters.csv').open('w',newline='',encoding='utf-8') as f:
++        w=csv.writer(f);w.writerow(['parameter','value'])
++        w.writerows([(k,c[k]) for k in ['mu_c','k_c','chi_c','Lambda_c']]+[('n_star',s['n_star']),('chi_T(L)',s['chi_T'])])
++    with (out/'branch_validation.csv').open('w',newline='',encoding='utf-8') as f:
++        w=csv.writer(f);w.writerow(['delta_chi','A_numeric','delta_over_A2','chi2_theory'])
++        for r in rows:
++            delta=float(r['delta_chi']);a=float(r['A_numeric'])
++            w.writerow([delta,a,delta/(a*a),float(r['chi2_theory'])])
++    print('Generated tables from model and',branch)
+ 
+-Generate manuscript tables from Task 1.7 results.
+-"""
+-
+-from pathlib import Path
+-import csv
+-
+-
+-OUT = Path("tables_task18")
+-OUT.mkdir(exist_ok=True)
+-
+-
+-def write_table(name, header, rows):
+-
+-    with open(
+-        OUT/name,
+-        "w",
+-        encoding="utf-8",
+-        newline=""
+-    ) as f:
+-
+-        writer = csv.writer(f)
+-        writer.writerow(header)
+-        writer.writerows(rows)
+-
+-
+-def main():
+-
+-    write_table(
+-        "critical_parameters.csv",
+-        ["parameter","value"],
+-        [
+-            ["mu_c","2.468635740034"],
+-            ["k_c","1.571189275687"],
+-            ["chi_c","2.452720209264"],
+-            ["Lambda_c","3.998999614119"],
+-            ["n_star","5"],
+-            ["chi_T(L)","2.452720334543"]
+-        ]
+-    )
+-
+-
+-    write_table(
+-        "branch_validation.csv",
+-        [
+-            "delta_chi",
+-            "A_numeric",
+-            "delta_over_A2",
+-            "chi2_theory"
+-        ],
+-        [
+-            [
+-                "0.00125",
+-                "0.024304443",
+-                "2.11611209",
+-                "2.114392500"
+-            ],
+-            [
+-                "0.00250",
+-                "0.034344667",
+-                "2.11944128",
+-                "2.114392500"
+-            ],
+-            [
+-                "0.00500",
+-                "0.048480668",
+-                "2.12731997",
+-                "2.114392500"
+-            ],
+-            [
+-                "0.01000",
+-                "0.068316579",
+-                "2.14263292",
+-                "2.114392500"
+-            ]
+-        ]
+-    )
+-
+-
+-    print("Tables generated:", OUT.resolve())
+-
+-
+-if __name__=="__main__":
+-    main()
++if __name__=='__main__':main()
+--- original_code/7.1.py
++++ patched_project/7.1.py
+@@ -243,16 +243,21 @@
+ 
+ def relative_l2(state: Tuple[np.ndarray, ...], reference: Tuple[np.ndarray, ...],
+                 equilibria: Tuple[float, ...]) -> float:
+-    difference = np.concatenate(
+-        [(field - ref).ravel() for field, ref in zip(state, reference)]
+-    )
+-    reference_perturbation = np.concatenate(
+-        [(ref - eq).ravel() for ref, eq in zip(reference, equilibria)]
+-    )
+-    denominator = np.linalg.norm(reference_perturbation)
+-    if denominator == 0.0:
+-        return float(np.linalg.norm(difference))
+-    return float(np.linalg.norm(difference) / denominator)
++    # Endpoint-weighted norm on the common [0,L] grid.
++    weights = np.ones(len(reference[0])); weights[[0,-1]] = 0.5
++    numerator = sum(np.dot(weights, (field-ref)**2) for field,ref in zip(state,reference))
++    denominator = sum(np.dot(weights, (ref-eq)**2) for ref,eq in zip(reference,equilibria))
++    return float(np.sqrt(numerator/denominator)) if denominator > 0 else float(np.sqrt(numerator))
++
++
++def prolong_even_half(field, target_M):
++    """Evaluate the same even trigonometric interpolant on the fine grid."""
++    full=np.concatenate([field,field[-2:0:-1]])
++    old_M=len(full); coeff=np.fft.rfft(full)/old_M
++    padded=np.zeros(target_M//2+1,dtype=complex)
++    padded[:len(coeff)]=coeff
++    if target_M>old_M: padded[old_M//2]*=0.5
++    return np.fft.irfft(padded*target_M,n=target_M)[:target_M//2+1]
+ 
+ 
+ def panel_label(ax: plt.Axes, label: str) -> None:
+@@ -320,7 +325,7 @@
+     dt: float,
+ ) -> float:
+     values = np.linalg.eigvals(imex_amplification_matrix(p, mu, chi, dt))
+-    return float(np.max(values.real))
++    return float(np.max(np.abs(values)))
+ 
+ 
+ def mode_threshold_bisection(
+@@ -329,7 +334,7 @@
+     dt: float,
+     tolerance: float = 2.0e-13,
+ ) -> float:
+-    """Solve max Re eig(G_dt)-1=0 without requiring SciPy."""
++    """Solve spectral_radius(G_dt)-1=0 without requiring SciPy."""
+ 
+     def objective(chi: float) -> float:
+         return dominant_discrete_eigenvalue(p, mu, chi, dt) - 1.0
+@@ -374,7 +379,7 @@
+     # Linear modes must lie inside the 2/3 retained band.  Only modes near
+     # the continuous minimizer can select onset, so a modest extra margin
+     # avoids scanning irrelevant highly damped modes.
+-    retained_max = n_fft // 3
++    retained_max = (n_fft - 1) // 3
+     expected_mode = L * k_c / math.pi
+     scan_max = min(retained_max, max(16, int(math.ceil(3.0 * expected_mode))))
+ 
+@@ -515,9 +520,8 @@
+         if ratio * int(run["n_fft"]) != int(reference["n_fft"]):
+             raise ValueError("Spatial grids must be nested for profile comparison.")
+ 
+-        sampled_reference = tuple(field[::ratio] for field in reference_state)
+-        state = (run["u"], run["v"], run["w"])
+-        profile_error = relative_l2(state, sampled_reference, equilibria)
++        state = tuple(prolong_even_half(run[key], int(reference["n_fft"])) for key in ["u","v","w"])
++        profile_error = relative_l2(state, reference_state, equilibria)
+         amplitude_error = abs(float(run["A_numeric"]) - float(reference["A_numeric"]))
+         amplitude_relative_error = amplitude_error / abs(float(reference["A_numeric"]))
+ 
+@@ -795,6 +799,11 @@
+         f"device: {device}",
+         f"dtype: {cfg.dtype}",
+         f"L: 10.0",
++        f"delta_chi: {cfg.delta_chi}",
++        f"spatial_t_final: {cfg.spatial_t_final}",
++        f"time_t_final: {cfg.time_t_final}",
++        "Profile metric: endpoint-weighted joint perturbation L2 on the common finest grid.",
++        "The comparisons concern finite-time states, not certified equilibria.",
+         f"continuous chi_c: {float(critical['chi_c']):.12f}",
+         f"finite-domain chi_T: {float(mode['chi_T']):.12f}",
+         f"selected mode n_star: {int(mode['n_star'])}",
+--- original_code/7.py
++++ patched_project/7.py
+@@ -245,16 +245,21 @@
+ 
+ def relative_l2(state: Tuple[np.ndarray, ...], reference: Tuple[np.ndarray, ...],
+                 equilibria: Tuple[float, ...]) -> float:
+-    difference = np.concatenate(
+-        [(field - ref).ravel() for field, ref in zip(state, reference)]
+-    )
+-    reference_perturbation = np.concatenate(
+-        [(ref - eq).ravel() for ref, eq in zip(reference, equilibria)]
+-    )
+-    denominator = np.linalg.norm(reference_perturbation)
+-    if denominator == 0.0:
+-        return float(np.linalg.norm(difference))
+-    return float(np.linalg.norm(difference) / denominator)
++    # Endpoint-weighted norm on the common [0,L] grid.
++    weights = np.ones(len(reference[0])); weights[[0,-1]] = 0.5
++    numerator = sum(np.dot(weights, (field-ref)**2) for field,ref in zip(state,reference))
++    denominator = sum(np.dot(weights, (ref-eq)**2) for ref,eq in zip(reference,equilibria))
++    return float(np.sqrt(numerator/denominator)) if denominator > 0 else float(np.sqrt(numerator))
++
++
++def prolong_even_half(field, target_M):
++    """Evaluate the same even trigonometric interpolant on the fine grid."""
++    full=np.concatenate([field,field[-2:0:-1]])
++    old_M=len(full); coeff=np.fft.rfft(full)/old_M
++    padded=np.zeros(target_M//2+1,dtype=complex)
++    padded[:len(coeff)]=coeff
++    if target_M>old_M: padded[old_M//2]*=0.5
++    return np.fft.irfft(padded*target_M,n=target_M)[:target_M//2+1]
+ 
+ 
+ def panel_label(ax: plt.Axes, label: str) -> None:
+@@ -312,7 +317,7 @@
+     dt: float,
+ ) -> float:
+     values = np.linalg.eigvals(imex_amplification_matrix(p, mu, chi, dt))
+-    return float(np.max(values.real))
++    return float(np.max(np.abs(values)))
+ 
+ 
+ def mode_threshold_bisection(
+@@ -321,7 +326,7 @@
+     dt: float,
+     tolerance: float = 2.0e-13,
+ ) -> float:
+-    """Solve max Re eig(G_dt)-1=0 without requiring SciPy."""
++    """Solve spectral_radius(G_dt)-1=0 without requiring SciPy."""
+ 
+     def objective(chi: float) -> float:
+         return dominant_discrete_eigenvalue(p, mu, chi, dt) - 1.0
+@@ -366,7 +371,7 @@
+     # Linear modes must lie inside the 2/3 retained band.  Only modes near
+     # the continuous minimizer can select onset, so a modest extra margin
+     # avoids scanning irrelevant highly damped modes.
+-    retained_max = n_fft // 3
++    retained_max = (n_fft - 1) // 3
+     expected_mode = L * k_c / math.pi
+     scan_max = min(retained_max, max(16, int(math.ceil(3.0 * expected_mode))))
+ 
+@@ -507,9 +512,8 @@
+         if ratio * int(run["n_fft"]) != int(reference["n_fft"]):
+             raise ValueError("Spatial grids must be nested for profile comparison.")
+ 
+-        sampled_reference = tuple(field[::ratio] for field in reference_state)
+-        state = (run["u"], run["v"], run["w"])
+-        profile_error = relative_l2(state, sampled_reference, equilibria)
++        state = tuple(prolong_even_half(run[key], int(reference["n_fft"])) for key in ["u","v","w"])
++        profile_error = relative_l2(state, reference_state, equilibria)
+         amplitude_error = abs(float(run["A_numeric"]) - float(reference["A_numeric"]))
+         amplitude_relative_error = amplitude_error / abs(float(reference["A_numeric"]))
+ 
+@@ -720,6 +724,11 @@
+         f"device: {device}",
+         f"dtype: {cfg.dtype}",
+         f"L: 10.0",
++        f"delta_chi: {cfg.delta_chi}",
++        f"spatial_t_final: {cfg.spatial_t_final}",
++        f"time_t_final: {cfg.time_t_final}",
++        "Profile metric: endpoint-weighted joint perturbation L2 on the common finest grid.",
++        "The comparisons concern finite-time states, not certified equilibria.",
+         f"continuous chi_c: {float(critical['chi_c']):.12f}",
+         f"finite-domain chi_T: {float(mode['chi_T']):.12f}",
+         f"selected mode n_star: {int(mode['n_star'])}",

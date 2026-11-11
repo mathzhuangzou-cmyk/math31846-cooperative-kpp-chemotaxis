@@ -1,0 +1,116 @@
+{
+  "date": "2026-11-11",
+  "tested_from_extracted_zip": true,
+  "python_sources": 34,
+  "scientific_scripts_including_preserved_copies": 33,
+  "original_12_scripts_identical_to_uploaded_zip": true,
+  "original_and_patched_solver_checks_passed": true,
+  "independent_short_run_checks": {
+    "status": "passed",
+    "scope": "Short T=0.1 integration only; no full long-time experiment rerun",
+    "coefficient_implementations_equal": true,
+    "checks": [
+      {
+        "initialization": "critical",
+        "T": 0.1,
+        "M": 128,
+        "amplitude": 0.06877102851407636,
+        "real_vs_full_fft_difference": 1.249000902703301e-16
+      },
+      {
+        "initialization": "offset",
+        "T": 0.1,
+        "M": 128,
+        "amplitude": 0.06875721141292185,
+        "real_vs_full_fft_difference": 6.938893903907228e-17
+      }
+    ]
+  },
+  "patched_solver_checks": {
+    "syntax_files": 12,
+    "terminal_time": 0.1,
+    "terminal_residual": 0.0009641971205096231,
+    "prolongation_max_error": 4.440892098500626e-16,
+    "reported_growth_rate": 0.02263983291813579,
+    "numerically_linearized_growth_rate": 0.022639832998168827,
+    "growth_rate_difference": 8.003303575421228e-11
+  },
+  "original_solver_diagnostic_checks": {
+    "torch_version": "2.15.0+cpu",
+    "device": "cpu",
+    "equilibrium_one_step_error": 0.0,
+    "linearized_step_vs_actual_IMEX_matrix_error": 1.2563010527710805e-12,
+    "growth_rate_checks": [
+      {
+        "dtype": "torch.float32",
+        "ratio": 0.98,
+        "continuous": -0.022727949229588023,
+        "old_reported_discrete": -0.022722785197667635,
+        "actual_discrete": -0.02282422306340418,
+        "observed_fit": -0.0073055612181826156
+      },
+      {
+        "dtype": "torch.float32",
+        "ratio": 1.02,
+        "continuous": 0.02254942065979337,
+        "old_reported_discrete": 0.02255450695281326,
+        "actual_discrete": 0.02263983291813579,
+        "observed_fit": 0.021395833070845
+      },
+      {
+        "dtype": "torch.float64",
+        "ratio": 0.98,
+        "continuous": -0.022727949229588023,
+        "old_reported_discrete": -0.022722785197667635,
+        "actual_discrete": -0.02282422306340418,
+        "observed_fit": -0.0228242073529664
+      },
+      {
+        "dtype": "torch.float64",
+        "ratio": 1.02,
+        "continuous": 0.02254942065979337,
+        "old_reported_discrete": 0.02255450695281326,
+        "actual_discrete": 0.02263983291813579,
+        "observed_fit": 0.02263978346911912
+      }
+    ],
+    "short_run_metadata_bug": {
+      "requested_T": 0.1,
+      "dt": 0.02,
+      "old_sim_time": 0.0,
+      "old_residual": "inf",
+      "recomputed_terminal_residual": 0.0009641971207104763
+    }
+  },
+  "figures": [
+    {
+      "image": "figures/figure4_bifurcation_branch.png",
+      "delivered_dimensions": [
+        2220,
+        1530
+      ],
+      "regenerated_dimensions": [
+        2220,
+        1530
+      ],
+      "pixel_identical": true
+    },
+    {
+      "image": "figures/figure1_dispersion_real_high.png",
+      "delivered_dimensions": [
+        4226,
+        2785
+      ],
+      "regenerated_dimensions": [
+        4226,
+        2785
+      ],
+      "pixel_identical": true
+    }
+  ],
+  "extended_csv_rows_match_saved_job_json": 21,
+  "full_long_time_experiments_rerun_for_this_packaging": false,
+  "github_published": false,
+  "journal_uploaded": false,
+  "figure1_matplotlib_warning": "Existing tight_layout warning; output visually inspected and pixel-identical to current manuscript image."
+}

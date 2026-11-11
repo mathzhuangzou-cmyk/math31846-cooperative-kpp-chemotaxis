@@ -1,0 +1,22 @@
+[
+  {
+    "pdf_page_1_based": 26,
+    "archive_image": "figures_task19/figure1_dispersion_real_high.png",
+    "width": 4226,
+    "height": 2785,
+    "rgb_sha256": "7cffea7652b13da113320bc96649999af18a76ec81d050214a8337dfb7642bb8",
+    "matching_pdf_xrefs": [
+      202
+    ]
+  },
+  {
+    "pdf_page_1_based": 27,
+    "archive_image": "figures_task18/figure4_bifurcation_branch.png",
+    "width": 4329,
+    "height": 3009,
+    "rgb_sha256": "c32828fe1c9e42c41e8481aa67357c6609c93563691c0ec766530f39ca80313d",
+    "matching_pdf_xrefs": [
+      210
+    ]
+  }
+]

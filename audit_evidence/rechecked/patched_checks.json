@@ -1,0 +1,9 @@
+{
+  "syntax_files": 12,
+  "terminal_time": 0.1,
+  "terminal_residual": 0.0009641971205096231,
+  "prolongation_max_error": 4.440892098500626e-16,
+  "reported_growth_rate": 0.02263983291813579,
+  "numerically_linearized_growth_rate": 0.022639832998168827,
+  "growth_rate_difference": 8.003303575421228e-11
+}

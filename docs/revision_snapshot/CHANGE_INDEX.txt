@@ -1,0 +1,209 @@
+Math-31846 修改与证据索引
+编号说明：R1-C1至C5为主要意见；R1-M1至M3为次要意见；A1为额外声明修正。
+所有PDF页码与行号均读取自本包 Math31846_marked.pdf 的最终编译；不是原投稿PDF页码。
+行号自引言起连续编号。浮动图表用图表编号和页码定位；首页用标题/摘要定位。
+正文已蓝色标记；Concern 4 的理论适用性论证已补齐。红字仅保留 M3 期刊附件上传待办。
+
+R1-M1.1 | Local scope and onset qualification in the title
+对应意见: M1, M2
+状态: Integrated
+位置: p. 1, title
+依据: Theorems 2.2 and 4.2
+
+R1-M1.2 | Strict inequalities and scope in the abstract
+对应意见: M1, M2
+状态: Integrated
+位置: p. 1, abstract (front matter is not line-numbered)
+依据: Theorems 2.2 and 4.2
+
+R1-C5.1 | Position the specific calculation against prior results
+对应意见: C5
+状态: Integrated
+位置: pp. 3-4, lines 73-93; TeX source lines 302-339
+依据: Reviewer 1 Concern 5; references [11,12,14,15,20]
+
+R1-C5.2 | Rational threshold and zero-exchange limit
+对应意见: C5
+状态: Integrated
+位置: p. 7, lines 182-189; TeX source lines 747-767
+依据: Algebraic elimination; reviewer formula
+
+R1-C4.1 | Auxiliary Neumann scale and exceptional interpolation index
+对应意见: C4
+状态: Integrated
+位置: pp. 9-10, lines 259-273; TeX source lines 1005-1039
+依据: Lunardi [27], Corollary 1.2.18 and Theorem 3.1.30; Eqs. (2.17a)-(2.17b)
+
+R1-C4.2 | Stability and instability in the original phase space
+对应意见: C4
+状态: Integrated
+位置: p. 13, lines 359-373; TeX source lines 1328-1360
+依据: Theorem 2.2 proof; Henry [22], Theorem 5.1.5; Pruss-Simonett [29], Theorem 5.1
+
+R1-M1.3 | Clarify equality and global-attraction exclusions
+对应意见: M1
+状态: Integrated
+位置: p. 13, lines 375-377; TeX source lines 1364-1372
+依据: Theorem 2.2 statement
+
+R1-C4.3 | Parameter augmentation and complete center-manifold hypothesis match
+对应意见: C4
+状态: Integrated
+位置: p. 18, lines 503-522; TeX source lines 1987-2032
+依据: Simonett [23], conditions (4.1)-(4.8), Theorem 4.1(b)(ii) and Theorem 5.8; Eq. (3.24a)
+
+R1-C5.3 | Record the quartic factorization at zero exchange
+对应意见: C5
+状态: Integrated
+位置: p. 20, lines 571-574; TeX source lines 2253-2263
+依据: Symbolic expansion of original equation (4.5)
+
+R1-C5.4 | Place boundedness in the existing logistic-damping framework
+对应意见: C5, M1
+状态: Integrated
+位置: p. 22, lines 644-646; TeX source lines 2538-2546
+依据: References [11,12]; Section 4.3
+
+R1-C2.1 | Repair the short-time estimate for u
+对应意见: C2
+状态: Integrated
+位置: p. 25, lines 706-713; TeX source lines 2859-2888
+依据: Existing L4 flux, L2 reaction and Neumann heat estimates
+
+R1-C2.2 | Repair the short-time estimate for v
+对应意见: C2
+状态: Integrated
+位置: p. 25, lines 717-719; TeX source lines 2900-2909
+依据: Uniform L2 bound for F_v
+
+R1-C1.1 | Specify Fourier grid, endpoints, IMEX split and dealiasing
+对应意见: C1
+状态: Integrated
+位置: p. 27, lines 756-762; TeX source lines 3047-3061
+依据: evidence/reproduce_concern1.py; original-code replay
+
+R1-C1.2 | Document actual parameter-dependent initialization
+对应意见: C1, C3
+状态: Integrated
+位置: pp. 28-29, lines 784-794; TeX source lines 3173-3201
+依据: evidence/table2_offset_recomputed.csv; evidence/table3_critical_recomputed.csv
+
+R1-C1.3 | Specify amplitude normalization and independent quadrature check
+对应意见: C1
+状态: Integrated
+位置: p. 29, lines 797-801; TeX source lines 3216-3228
+依据: evidence/audit_results.json
+
+R1-C3.1 | Withdraw the independent-coefficient interpretation and retain finite-time checks
+对应意见: C3
+状态: Integrated
+位置: p. 29, lines 804-810; TeX source lines 3261-3274
+依据: Table 2 recomputation; equation (3.28)
+
+R1-C3.2 | Qualify the branch-figure interpretation
+对应意见: C3
+状态: Integrated
+位置: p. 29, lines 811-813; TeX source lines 3289-3296
+依据: Original Figure 2 matches archived correct plot; audit pixel comparison
+
+R1-C1.4 | Define the recomputed comparison and full-profile error
+对应意见: C1
+状态: Integrated
+位置: p. 30, lines 815-821; TeX source lines 3303-3318
+依据: evidence/table3_offset_recomputed.csv; evidence/reproduce_concern1.py
+
+R1-C1.5 | Withdraw unsupported original Table 3 values and spatial-convergence claims
+对应意见: C1
+状态: Integrated
+位置: pp. 30-31, lines 822-830; TeX source lines 3336-3352
+依据: evidence/table3_offset_recomputed.csv; archived-code audit; unresolved original provenance explicitly acknowledged
+
+R1-C1.T3 | Replace original Table 3 with the recomputation
+对应意见: C1
+状态: Integrated
+位置: Table 3, p. 30 (float; use its object number and page)
+依据: evidence/table3_offset_recomputed.csv
+
+R1-C3.3 | Separate linear time accuracy and define nonlinear diagnostics
+对应意见: C3
+状态: Integrated
+位置: p. 31, lines 840-848; TeX source lines 3415-3433
+依据: evidence/extended_checks.csv
+
+R1-C3.4 | Report long-time evidence and its increased coefficient deviation without overinterpretation
+对应意见: C3
+状态: Integrated
+位置: pp. 31-32, lines 849-863; TeX source lines 3453-3480
+依据: evidence/extended_checks.csv
+
+R1-C3.T5 | Add Table 5 with nonlinear terminal checks
+对应意见: C3
+状态: Integrated
+位置: Table 5, p. 32 (float; use its object number and page)
+依据: evidence/extended_checks.csv
+
+R1-M2.1 | Align the conclusion with local and onset-only statements
+对应意见: M1, M2, C3, C5
+状态: Integrated
+位置: p. 32, lines 865-879; TeX source lines 3487-3514
+依据: Theorems 2.2, 4.2, 4.3 and new Table 5
+
+A1 | Correct the AI-use declaration to reflect this revision workflow
+对应意见: Additional author correction
+状态: Integrated
+位置: p. 33, lines 890-893; TeX source lines 3534-3542
+依据: This revision session; final wording requires author review
+
+R1-M3.1 | Replace upon-request availability with prepared supplement and upload status
+对应意见: M3
+状态: Prepared; journal upload still required
+位置: p. 33, lines 900-907; TeX source lines 3559-3571
+依据: Existing full audit package; no journal upload
+
+R1-C3.T2 | Qualify Table 2 caption
+对应意见: C3
+状态: Integrated
+位置: Table 2, p. 29 (float; use its object number and page)
+依据: Original numerical values retained; caption corrected
+
+R1-C3.F2 | Regenerate Figure 2 with a finite-time label and qualify its caption
+对应意见: C3
+状态: Integrated
+位置: Figure 2, p. 30 (float; use its object number and page)
+依据: evidence/regenerate_branch_figure.py; evidence/table2_offset_recomputed.csv
+
+R1-C3.T4 | Identify Table 4 as linear consistency
+对应意见: C3
+状态: Integrated
+位置: Table 4, p. 31 (float; use its object number and page)
+依据: Original numerical values retained; caption corrected
+
+R1-M2.2 | Qualify section headings and the Introduction roadmap
+对应意见: M1, M2
+状态: Integrated
+位置: Section 2, p. 4; Section 4, p. 19; Section 5.1, p. 27
+依据: Title and onset scope of Theorems 2.2 and 4.2
+
+R1-C4.4 | Boundary complementing condition, block resolvent and exact part domain
+对应意见: C4
+状态: Integrated
+位置: p. 11, lines 294-314; TeX source lines 1126-1170
+依据: Eqs. (2.19a)-(2.19b); Lunardi [27], Corollary 3.1.24 and Theorem 3.1.34(ii)
+
+R1-C4.5 | Continuous maximal regularity and smooth positive-time maps
+对应意见: C4
+状态: Integrated
+位置: pp. 11-12, lines 318-336; TeX source lines 1192-1235
+依据: Simonett [23], Theorems 2.2 and 3.1; Clement-Simonett [28], Theorem 6.1 and Eq. (6.13)
+
+R1-C4.6 | Stationary-branch regularity and Fourier-coordinate normalization
+对应意见: C4
+状态: Integrated
+位置: p. 18, lines 496-502; TeX source lines 1968-1984
+依据: Scalar elliptic bootstrap and inverse function theorem; chi_1=0
+
+R1-C4.7 | Append precise supporting references without renumbering old references
+对应意见: C4
+状态: Integrated
+位置: p. 35, lines 971-977; TeX source lines 3744-3763
+依据: References [27]-[29]; evidence/Concern4_verification_CN.txt

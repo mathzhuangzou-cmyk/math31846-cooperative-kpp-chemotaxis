@@ -1,0 +1,85 @@
+{
+  "job": 3,
+  "parameters": {
+    "d1": 0.2,
+    "d2": 0.1,
+    "Dw": 1.0,
+    "r1": 1.0,
+    "r2": 0.8,
+    "k12": 0.3,
+    "k21": 0.2,
+    "alpha": 1.0,
+    "beta": 1.0,
+    "tau": 1.0,
+    "L": 10.0
+  },
+  "runtime_seconds": 82.554385766,
+  "rows": [
+    {
+      "M": 128,
+      "dt": 0.01,
+      "T": 500,
+      "delta_chi": 0.00125,
+      "initial_amplitude": 0.01,
+      "A": 0.012545563063599326,
+      "ratio": 7.941996608372367,
+      "terminal_residual": 5.420116407555128e-06,
+      "amplitude_derivative": 5.30531533068793e-06
+    },
+    {
+      "M": 128,
+      "dt": 0.01,
+      "T": 1000,
+      "delta_chi": 0.00125,
+      "initial_amplitude": 0.01,
+      "A": 0.0152359994951748,
+      "ratio": 5.384781851190513,
+      "terminal_residual": 5.471932114694834e-06,
+      "amplitude_derivative": 5.331004111000948e-06
+    },
+    {
+      "M": 128,
+      "dt": 0.01,
+      "T": 2000,
+      "delta_chi": 0.00125,
+      "initial_amplitude": 0.01,
+      "A": 0.019934535522643116,
+      "ratio": 3.1455585330393028,
+      "terminal_residual": 3.888245830197053e-06,
+      "amplitude_derivative": 3.756951196863187e-06
+    },
+    {
+      "M": 128,
+      "dt": 0.01,
+      "T": 4000,
+      "delta_chi": 0.00125,
+      "initial_amplitude": 0.01,
+      "A": 0.023731363421426725,
+      "ratio": 2.21954846599016,
+      "terminal_residual": 6.532086472072381e-07,
+      "amplitude_derivative": 6.269086711722591e-07
+    },
+    {
+      "M": 128,
+      "dt": 0.01,
+      "T": 8000,
+      "delta_chi": 0.00125,
+      "initial_amplitude": 0.01,
+      "A": 0.024288266066125684,
+      "ratio": 2.1189318528645296,
+      "terminal_residual": 6.849406932984275e-09,
+      "amplitude_derivative": 6.567092527762219e-09
+    },
+    {
+      "M": 128,
+      "dt": 0.01,
+      "T": 16000,
+      "delta_chi": 0.00125,
+      "initial_amplitude": 0.01,
+      "A": 0.02429395751834567,
+      "ratio": 2.1179391462017496,
+      "terminal_residual": 6.530598577945548e-13,
+      "amplitude_derivative": 6.273757555130821e-13
+    }
+  ]
+}

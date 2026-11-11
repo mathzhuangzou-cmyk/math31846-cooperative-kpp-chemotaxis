@@ -1,0 +1,173 @@
+{
+  "uploaded_archive_name": "dong BVP.zip",
+  "uploaded_archive_sha256": "8a0e1c003f6ae2f9fe739f6677c99c10b3a1ef4649fe4141e427202b12596283",
+  "scientific_script_count_including_preserved_copies": 33,
+  "sources": [
+    {
+      "path": "original_code/1.py",
+      "role": "uploaded historical snapshot",
+      "sha256": "9d7b398481c6af055d5ab2a39b38793293d1637b49a41a276d5b939863af3baa"
+    },
+    {
+      "path": "original_code/2.py",
+      "role": "uploaded historical snapshot",
+      "sha256": "c74c2795c0cb4653c1fa49e300819999ff9214368e506e2635bdfa61d3ea39ef"
+    },
+    {
+      "path": "original_code/3.1.py",
+      "role": "uploaded historical snapshot",
+      "sha256": "bf497e4d6016d5d3e916f35b75f6a7106d76bb2ed760095ad15e9e2bb6bf7a21"
+    },
+    {
+      "path": "original_code/3.py",
+      "role": "uploaded historical snapshot",
+      "sha256": "634f4b7ee1326e018763e7912a69b7bd9c60cdece3dc930c2a35e1a948190b15"
+    },
+    {
+      "path": "original_code/4.1.py",
+      "role": "uploaded historical snapshot",
+      "sha256": "99849619771c3ee57356d27579b095e646be9796e08cc72cb152bb473ec70988"
+    },
+    {
+      "path": "original_code/4.2.py",
+      "role": "uploaded historical snapshot",
+      "sha256": "78bcc45389220789635b9344cf5264cb5571d200221805ad3683d84122ca8b36"
+    },
+    {
+      "path": "original_code/4.py",
+      "role": "uploaded historical snapshot",
+      "sha256": "dbe300472ca03ddff804e4f0a0239b5a3acf71c3daf862b34feec83fd7c954a3"
+    },
+    {
+      "path": "original_code/5.py",
+      "role": "uploaded historical snapshot",
+      "sha256": "bdb2ae05dc79e8bbba6e4305f6ddf354a622d6afe84f7ef20ffaffa83c2bda99"
+    },
+    {
+      "path": "original_code/6.1.py",
+      "role": "uploaded historical snapshot",
+      "sha256": "1ed7f5d7e3d4100d7009125c748819aa69e8d47dc315c0b2c615537e30ffa6eb"
+    },
+    {
+      "path": "original_code/6.py",
+      "role": "uploaded historical snapshot",
+      "sha256": "fede1b0b1a22a74efae676c507a8b17be12939b4b86537ed5640f9ad4808c523"
+    },
+    {
+      "path": "original_code/7.1.py",
+      "role": "uploaded historical snapshot",
+      "sha256": "96aff4f43f050932d59f2f461ccd1f1222824179a567552cf8d4d1b23642f3b7"
+    },
+    {
+      "path": "original_code/7.py",
+      "role": "uploaded historical snapshot",
+      "sha256": "cf982cda11c43d958592acf5ffd07bb48b6b3cb3e11c02583a0ae4c5dc8260a5"
+    },
+    {
+      "path": "patched_project/1.py",
+      "role": "audited project copy",
+      "sha256": "5f2c10175346d65cf6d00dba5544df706adebbfda76ac7962cff28900870275a"
+    },
+    {
+      "path": "patched_project/2.py",
+      "role": "audited project copy",
+      "sha256": "0c0db14590e831a6d58ae5a016803bf622f49468aca2ea7c182712511775a9b7"
+    },
+    {
+      "path": "patched_project/3.1.py",
+      "role": "audited project copy",
+      "sha256": "4b012158910de0e02f56e9d2a3b0efa3f0389578440e675f83f6d1b0103c06a6"
+    },
+    {
+      "path": "patched_project/3.py",
+      "role": "audited project copy",
+      "sha256": "634f4b7ee1326e018763e7912a69b7bd9c60cdece3dc930c2a35e1a948190b15"
+    },
+    {
+      "path": "patched_project/4.1.py",
+      "role": "audited project copy",
+      "sha256": "75801d77c639a4ae28fa859232fffd42da0d0fa5027b803d8905e648db5a3cfe"
+    },
+    {
+      "path": "patched_project/4.2.py",
+      "role": "audited project copy",
+      "sha256": "78bcc45389220789635b9344cf5264cb5571d200221805ad3683d84122ca8b36"
+    },
+    {
+      "path": "patched_project/4.py",
+      "role": "audited project copy",
+      "sha256": "4a9ce0bfd3640743e94d333edacad914a75650c186eb4c92411bb71d5ca17746"
+    },
+    {
+      "path": "patched_project/5.py",
+      "role": "audited project copy",
+      "sha256": "97dca3da7a228e78f87f73aef16884ed311f94dc04c3ebdd2dead52aad79b9b2"
+    },
+    {
+      "path": "patched_project/6.1.py",
+      "role": "audited project copy",
+      "sha256": "1ed7f5d7e3d4100d7009125c748819aa69e8d47dc315c0b2c615537e30ffa6eb"
+    },
+    {
+      "path": "patched_project/6.py",
+      "role": "audited project copy",
+      "sha256": "fede1b0b1a22a74efae676c507a8b17be12939b4b86537ed5640f9ad4808c523"
+    },
+    {
+      "path": "patched_project/7.1.py",
+      "role": "audited project copy",
+      "sha256": "54a90422d96aad2ed2568ed17b99fdef7d6c425956e473d71177dca14efaf885"
+    },
+    {
+      "path": "patched_project/7.py",
+      "role": "audited project copy",
+      "sha256": "3ab09602e4c1426c3bf349b7a241c52ff284aca424efd0ad05723f185856fe60"
+    },
+    {
+      "path": "audit_workflow/check_original_solver.py",
+      "role": "earlier numerical audit workflow",
+      "sha256": "78e53c5b53d4c776471927bb045807d659de3317d74ab24d18b160a55f31ab63"
+    },
+    {
+      "path": "audit_workflow/check_patched_solver.py",
+      "role": "earlier numerical audit workflow",
+      "sha256": "6c5f9fe35621a862766f770c50d966f107f0605688833f7801fcdb11eeb07d27"
+    },
+    {
+      "path": "audit_workflow/extended_checks.py",
+      "role": "earlier numerical audit workflow",
+      "sha256": "cffbf1fe6dd7371a32cdd4586cfa2c57ab6bc6e9c6380736f808873954353153"
+    },
+    {
+      "path": "audit_workflow/independent_solver.py",
+      "role": "earlier numerical audit workflow",
+      "sha256": "f13227ce92c0ab613d6a2ecac9548e739dc2c7bc0cb0fbc84833a5d2aa037d58"
+    },
+    {
+      "path": "evidence/crosscheck_full_fft.py",
+      "role": "current revision reproduction workflow",
+      "sha256": "af84a0c0def68c0c487b6f0a28fb1a0668a4fb18585190dc2f8cee00ace2d539"
+    },
+    {
+      "path": "evidence/extended_checks.py",
+      "role": "current revision reproduction workflow",
+      "sha256": "cffbf1fe6dd7371a32cdd4586cfa2c57ab6bc6e9c6380736f808873954353153"
+    },
+    {
+      "path": "evidence/independent_solver.py",
+      "role": "current revision reproduction workflow",
+      "sha256": "f13227ce92c0ab613d6a2ecac9548e739dc2c7bc0cb0fbc84833a5d2aa037d58"
+    },
+    {
+      "path": "evidence/regenerate_branch_figure.py",
+      "role": "current revision reproduction workflow",
+      "sha256": "d77c51b5754c8525069457d0589303ec1d713b595752a327cccde5fde6b1e4b8"
+    },
+    {
+      "path": "evidence/reproduce_concern1.py",
+      "role": "current revision reproduction workflow",
+      "sha256": "f13227ce92c0ab613d6a2ecac9548e739dc2c7bc0cb0fbc84833a5d2aa037d58"
+    }
+  ],
+  "scope": "Scientific numerical and plotting code; excludes document-production and storage automation."
+}

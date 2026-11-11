@@ -1,0 +1,1096 @@
+{
+  "provenance": "New independent reconstruction. Archived task16 and task17B sources examined; exact origin of the old Table 3 remains unresolved.",
+  "parameters": {
+    "d1": 0.2,
+    "d2": 0.1,
+    "Dw": 1.0,
+    "r1": 1.0,
+    "r2": 0.8,
+    "k12": 0.3,
+    "k21": 0.2,
+    "alpha": 1.0,
+    "beta": 1.0,
+    "tau": 1.0,
+    "L": 10.0
+  },
+  "coefficients": {
+    "mu": 2.4674011002723395,
+    "chi_T": 2.4527203345427138,
+    "mu_c": 2.4686357400334997,
+    "chi_c": 2.452720209263587,
+    "chi2": 2.1143925003845543,
+    "sigma": 0.4614896453069839,
+    "eta": 0.1604183569546272,
+    "zeta": 0.288400439142001,
+    "zero": [
+      -0.4057161983143247,
+      -0.09143685936207382,
+      -0.4057161983143247
+    ],
+    "second": [
+      1.2234266588079343,
+      0.11796496162224922,
+      0.11255484686133764
+    ]
+  },
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41"
+  },
+  "script_sha256": "f13227ce92c0ab613d6a2ecac9548e739dc2c7bc0cb0fbc84833a5d2aa037d58",
+  "table1": [
+    {
+      "tau": 0.25,
+      "below": -0.03001098079447302,
+      "at": -1.4679673898980103e-16,
+      "above": 0.029943218699203238
+    },
+    {
+      "tau": 0.5,
+      "below": -0.027121263423048964,
+      "at": -8.424250880212369e-16,
+      "above": 0.026986496644083008
+    },
+    {
+      "tau": 1.0,
+      "below": -0.022727949229588023,
+      "at": 6.836978899693591e-16,
+      "above": 0.02254942065979337
+    },
+    {
+      "tau": 2.0,
+      "below": -0.01714844899355797,
+      "at": 2.7755575615628914e-16,
+      "above": 0.016986624180899662
+    },
+    {
+      "tau": 4.0,
+      "below": -0.011487752217866187,
+      "at": 1.6653345369377348e-16,
+      "above": 0.011387691939080902
+    }
+  ],
+  "table4": [
+    {
+      "dt": 0.04,
+      "lambda_exact": 0.02254942065979337,
+      "lambda_imex": 0.022731017013497282,
+      "absolute_error": 0.00018159635370391253,
+      "observed_rate": null
+    },
+    {
+      "dt": 0.02,
+      "lambda_exact": 0.02254942065979337,
+      "lambda_imex": 0.02263983291813579,
+      "absolute_error": 9.041225834242189e-05,
+      "observed_rate": 1.0061449392914852
+    },
+    {
+      "dt": 0.01,
+      "lambda_exact": 0.02254942065979337,
+      "lambda_imex": 0.02259453095443749,
+      "absolute_error": 4.5110294644119114e-05,
+      "observed_rate": 1.0030616812099273
+    },
+    {
+      "dt": 0.005,
+      "lambda_exact": 0.02254942065979337,
+      "lambda_imex": 0.022571951928590118,
+      "absolute_error": 2.2531268796747994e-05,
+      "observed_rate": 1.0015281513252645
+    }
+  ],
+  "table2_critical": [
+    {
+      "M": 1024,
+      "delta_chi": 0.00125,
+      "dt": 0.01,
+      "T": 500.0,
+      "initialization": "critical",
+      "A_numeric": 0.024305366120927957,
+      "coefficient_ratio": 2.1159513501679315,
+      "amplitude_trapezoid": 0.02430536612092796,
+      "amplitude_measurement_difference": 3.469446951953614e-18,
+      "terminal_residual_max": 1.3742706481257942e-08,
+      "terminal_amplitude_derivative": -1.3175873103503377e-08,
+      "min_u": 0.9761611674165684,
+      "min_v": 0.9961155585462811,
+      "runtime_seconds": 3.787373810999952,
+      "trace": [
+        {
+          "t": 50.0,
+          "amplitude": 0.024313169345053256
+        },
+        {
+          "t": 100.0,
+          "amplitude": 0.024312088204982454
+        },
+        {
+          "t": 150.0,
+          "amplitude": 0.024311067971797502
+        },
+        {
+          "t": 200.0,
+          "amplitude": 0.024310105207224847
+        },
+        {
+          "t": 250.0,
+          "amplitude": 0.024309196667855554
+        },
+        {
+          "t": 300.0,
+          "amplitude": 0.024308339294017253
+        },
+        {
+          "t": 350.0,
+          "amplitude": 0.024307530199290845
+        },
+        {
+          "t": 400.0,
+          "amplitude": 0.024306766660633278
+        },
+        {
+          "t": 450.0,
+          "amplitude": 0.024306046109070605
+        },
+        {
+          "t": 500.0,
+          "amplitude": 0.024305366120927957
+        }
+      ],
+      "state_file": "state_critical_M1024_delta0.00125_dt0.01_T500.npz"
+    },
+    {
+      "M": 1024,
+      "delta_chi": 0.0025,
+      "dt": 0.01,
+      "T": 500.0,
+      "initialization": "critical",
+      "A_numeric": 0.03434612746183615,
+      "coefficient_ratio": 2.1192610392386917,
+      "amplitude_trapezoid": 0.03434612746183615,
+      "amplitude_measurement_difference": 0.0,
+      "terminal_residual_max": 4.4319372111634384e-08,
+      "terminal_amplitude_derivative": -4.1724337962109614e-08,
+      "min_u": 0.9665724751659288,
+      "min_v": 0.9945184842473831,
+      "runtime_seconds": 3.6957031710001047,
+      "trace": [
+        {
+          "t": 50.0,
+          "amplitude": 0.034379329281692385
+        },
+        {
+          "t": 100.0,
+          "amplitude": 0.03437371380179275
+        },
+        {
+          "t": 150.0,
+          "amplitude": 0.03436871473280227
+        },
+        {
+          "t": 200.0,
+          "amplitude": 0.03436426418477368
+        },
+        {
+          "t": 250.0,
+          "amplitude": 0.03436030179190252
+        },
+        {
+          "t": 300.0,
+          "amplitude": 0.03435677386893082
+        },
+        {
+          "t": 350.0,
+          "amplitude": 0.034353632664140786
+        },
+        {
+          "t": 400.0,
+          "amplitude": 0.03435083569745755
+        },
+        {
+          "t": 450.0,
+          "amplitude": 0.03434834517364867
+        },
+        {
+          "t": 500.0,
+          "amplitude": 0.03434612746183615
+        }
+      ],
+      "state_file": "state_critical_M1024_delta0.0025_dt0.01_T500.npz"
+    },
+    {
+      "M": 1024,
+      "delta_chi": 0.005,
+      "dt": 0.01,
+      "T": 500.0,
+      "initialization": "critical",
+      "A_numeric": 0.048481955195009904,
+      "coefficient_ratio": 2.1272069957634168,
+      "amplitude_trapezoid": 0.0484819551950099,
+      "amplitude_measurement_difference": 6.938893903907228e-18,
+      "terminal_residual_max": 8.035546313069428e-08,
+      "terminal_amplitude_derivative": -7.367354666956705e-08,
+      "min_u": 0.9533130318178297,
+      "min_v": 0.9922763686842732,
+      "runtime_seconds": 3.699169159000121,
+      "trace": [
+        {
+          "t": 50.0,
+          "amplitude": 0.04859489540296296
+        },
+        {
+          "t": 100.0,
+          "amplitude": 0.04856812907988264
+        },
+        {
+          "t": 150.0,
+          "amplitude": 0.048546936976181954
+        },
+        {
+          "t": 200.0,
+          "amplitude": 0.04853015304151592
+        },
+        {
+          "t": 250.0,
+          "amplitude": 0.04851685707688429
+        },
+        {
+          "t": 300.0,
+          "amplitude": 0.04850632218337035
+        },
+        {
+          "t": 350.0,
+          "amplitude": 0.04849797370804802
+        },
+        {
+          "t": 400.0,
+          "amplitude": 0.04849135707506455
+        },
+        {
+          "t": 450.0,
+          "amplitude": 0.048486112518054146
+        },
+        {
+          "t": 500.0,
+          "amplitude": 0.048481955195009904
+        }
+      ],
+      "state_file": "state_critical_M1024_delta0.005_dt0.01_T500.npz"
+    },
+    {
+      "M": 1024,
+      "delta_chi": 0.01,
+      "dt": 0.01,
+      "T": 500.0,
+      "initialization": "critical",
+      "A_numeric": 0.0683169288349296,
+      "coefficient_ratio": 2.142611003330607,
+      "amplitude_trapezoid": 0.0683169288349296,
+      "amplitude_measurement_difference": 0.0,
+      "terminal_residual_max": 4.54986933063187e-08,
+      "terminal_amplitude_derivative": -4.0125217894843024e-08,
+      "min_u": 0.9351528036848435,
+      "min_v": 0.9891405184759797,
+      "runtime_seconds": 3.7553945980000663,
+      "trace": [
+        {
+          "t": 50.0,
+          "amplitude": 0.06859989724033756
+        },
+        {
+          "t": 100.0,
+          "amplitude": 0.06849251327761813
+        },
+        {
+          "t": 150.0,
+          "amplitude": 0.0684253679108097
+        },
+        {
+          "t": 200.0,
+          "amplitude": 0.06838332243070759
+        },
+        {
+          "t": 250.0,
+          "amplitude": 0.06835697037409404
+        },
+        {
+          "t": 300.0,
+          "amplitude": 0.06834044485240648
+        },
+        {
+          "t": 350.0,
+          "amplitude": 0.06833007793344922
+        },
+        {
+          "t": 400.0,
+          "amplitude": 0.06832357303198637
+        },
+        {
+          "t": 450.0,
+          "amplitude": 0.06831949085080277
+        },
+        {
+          "t": 500.0,
+          "amplitude": 0.0683169288349296
+        }
+      ],
+      "state_file": "state_critical_M1024_delta0.01_dt0.01_T500.npz",
+      "relative_u_L2": 3.9884017424289745e-17,
+      "relative_u_perturbation_L2": 8.214772973947054e-16,
+      "relative_joint_L2": 2.4647871484557897e-17
+    }
+  ],
+  "table3_critical": [
+    {
+      "M": 128,
+      "delta_chi": 0.01,
+      "dt": 0.01,
+      "T": 500.0,
+      "initialization": "critical",
+      "A_numeric": 0.06831692883492961,
+      "coefficient_ratio": 2.142611003330606,
+      "amplitude_trapezoid": 0.06831692883492961,
+      "amplitude_measurement_difference": 0.0,
+      "terminal_residual_max": 4.5498693812106345e-08,
+      "terminal_amplitude_derivative": -4.012521790178192e-08,
+      "min_u": 0.9351528036994583,
+      "min_v": 0.9891405184761156,
+      "runtime_seconds": 2.219921677000002,
+      "trace": [
+        {
+          "t": 50.0,
+          "amplitude": 0.06859989724033763
+        },
+        {
+          "t": 100.0,
+          "amplitude": 0.06849251327761809
+        },
+        {
+          "t": 150.0,
+          "amplitude": 0.0684253679108097
+        },
+        {
+          "t": 200.0,
+          "amplitude": 0.06838332243070759
+        },
+        {
+          "t": 250.0,
+          "amplitude": 0.06835697037409405
+        },
+        {
+          "t": 300.0,
+          "amplitude": 0.06834044485240669
+        },
+        {
+          "t": 350.0,
+          "amplitude": 0.06833007793344918
+        },
+        {
+          "t": 400.0,
+          "amplitude": 0.06832357303198669
+        },
+        {
+          "t": 450.0,
+          "amplitude": 0.06831949085080276
+        },
+        {
+          "t": 500.0,
+          "amplitude": 0.06831692883492961
+        }
+      ],
+      "state_file": "state_critical_M128_delta0.01_dt0.01_T500.npz",
+      "relative_u_L2": 1.0757954569166806e-11,
+      "relative_u_perturbation_L2": 2.2157786541312913e-10,
+      "relative_joint_L2": 6.2129911186279765e-12
+    },
+    {
+      "M": 512,
+      "delta_chi": 0.01,
+      "dt": 0.01,
+      "T": 500.0,
+      "initialization": "critical",
+      "A_numeric": 0.06831692883492958,
+      "coefficient_ratio": 2.142611003330608,
+      "amplitude_trapezoid": 0.06831692883492957,
+      "amplitude_measurement_difference": 1.3877787807814457e-17,
+      "terminal_residual_max": 4.54986933462678e-08,
+      "terminal_amplitude_derivative": -4.012521788443468e-08,
+      "min_u": 0.9351528036848435,
+      "min_v": 0.9891405184759797,
+      "runtime_seconds": 2.890392862999988,
+      "trace": [
+        {
+          "t": 50.0,
+          "amplitude": 0.06859989724033783
+        },
+        {
+          "t": 100.0,
+          "amplitude": 0.06849251327761834
+        },
+        {
+          "t": 150.0,
+          "amplitude": 0.06842536791081011
+        },
+        {
+          "t": 200.0,
+          "amplitude": 0.06838332243070763
+        },
+        {
+          "t": 250.0,
+          "amplitude": 0.06835697037409405
+        },
+        {
+          "t": 300.0,
+          "amplitude": 0.06834044485240649
+        },
+        {
+          "t": 350.0,
+          "amplitude": 0.0683300779334492
+        },
+        {
+          "t": 400.0,
+          "amplitude": 0.06832357303198695
+        },
+        {
+          "t": 450.0,
+          "amplitude": 0.06831949085080276
+        },
+        {
+          "t": 500.0,
+          "amplitude": 0.06831692883492958
+        }
+      ],
+      "state_file": "state_critical_M512_delta0.01_dt0.01_T500.npz",
+      "relative_u_L2": 3.087693373346524e-17,
+      "relative_u_perturbation_L2": 6.359615132390122e-16,
+      "relative_joint_L2": 1.9430750826973422e-17
+    },
+    {
+      "M": 1024,
+      "delta_chi": 0.01,
+      "dt": 0.01,
+      "T": 500.0,
+      "initialization": "critical",
+      "A_numeric": 0.0683169288349296,
+      "coefficient_ratio": 2.142611003330607,
+      "amplitude_trapezoid": 0.0683169288349296,
+      "amplitude_measurement_difference": 0.0,
+      "terminal_residual_max": 4.54986933063187e-08,
+      "terminal_amplitude_derivative": -4.0125217894843024e-08,
+      "min_u": 0.9351528036848435,
+      "min_v": 0.9891405184759797,
+      "runtime_seconds": 3.7553945980000663,
+      "trace": [
+        {
+          "t": 50.0,
+          "amplitude": 0.06859989724033756
+        },
+        {
+          "t": 100.0,
+          "amplitude": 0.06849251327761813
+        },
+        {
+          "t": 150.0,
+          "amplitude": 0.0684253679108097
+        },
+        {
+          "t": 200.0,
+          "amplitude": 0.06838332243070759
+        },
+        {
+          "t": 250.0,
+          "amplitude": 0.06835697037409404
+        },
+        {
+          "t": 300.0,
+          "amplitude": 0.06834044485240648
+        },
+        {
+          "t": 350.0,
+          "amplitude": 0.06833007793344922
+        },
+        {
+          "t": 400.0,
+          "amplitude": 0.06832357303198637
+        },
+        {
+          "t": 450.0,
+          "amplitude": 0.06831949085080277
+        },
+        {
+          "t": 500.0,
+          "amplitude": 0.0683169288349296
+        }
+      ],
+      "state_file": "state_critical_M1024_delta0.01_dt0.01_T500.npz",
+      "relative_u_L2": 3.9884017424289745e-17,
+      "relative_u_perturbation_L2": 8.214772973947054e-16,
+      "relative_joint_L2": 2.4647871484557897e-17
+    },
+    {
+      "M": 2048,
+      "delta_chi": 0.01,
+      "dt": 0.01,
+      "T": 500.0,
+      "initialization": "critical",
+      "A_numeric": 0.06831692883492954,
+      "coefficient_ratio": 2.1426110033306105,
+      "amplitude_trapezoid": 0.06831692883492956,
+      "amplitude_measurement_difference": 1.3877787807814457e-17,
+      "terminal_residual_max": 4.549869383892459e-08,
+      "terminal_amplitude_derivative": -4.0125217880965236e-08,
+      "min_u": 0.9351528036848435,
+      "min_v": 0.9891405184759797,
+      "runtime_seconds": 5.84586358599995,
+      "trace": [
+        {
+          "t": 50.0,
+          "amplitude": 0.06859989724033763
+        },
+        {
+          "t": 100.0,
+          "amplitude": 0.06849251327761809
+        },
+        {
+          "t": 150.0,
+          "amplitude": 0.06842536791080904
+        },
+        {
+          "t": 200.0,
+          "amplitude": 0.06838332243070712
+        },
+        {
+          "t": 250.0,
+          "amplitude": 0.06835697037409379
+        },
+        {
+          "t": 300.0,
+          "amplitude": 0.0683404448524067
+        },
+        {
+          "t": 350.0,
+          "amplitude": 0.06833007793344921
+        },
+        {
+          "t": 400.0,
+          "amplitude": 0.06832357303198636
+        },
+        {
+          "t": 450.0,
+          "amplitude": 0.06831949085080283
+        },
+        {
+          "t": 500.0,
+          "amplitude": 0.06831692883492954
+        }
+      ],
+      "state_file": "state_critical_M2048_delta0.01_dt0.01_T500.npz",
+      "relative_u_L2": 0.0,
+      "relative_u_perturbation_L2": 0.0,
+      "relative_joint_L2": 0.0
+    }
+  ],
+  "table2_offset": [
+    {
+      "M": 1024,
+      "delta_chi": 0.00125,
+      "dt": 0.01,
+      "T": 500.0,
+      "initialization": "offset",
+      "A_numeric": 0.02430444297193225,
+      "coefficient_ratio": 2.116112092420917,
+      "amplitude_trapezoid": 0.024304442971932252,
+      "amplitude_measurement_difference": 3.469446951953614e-18,
+      "terminal_residual_max": 1.2629894995002495e-08,
+      "terminal_amplitude_derivative": -1.2108980386969781e-08,
+      "min_u": 0.9761620557625093,
+      "min_v": 0.996115705711899,
+      "runtime_seconds": 3.868282964999935,
+      "trace": [
+        {
+          "t": 50.0,
+          "amplitude": 0.024311614064049115
+        },
+        {
+          "t": 100.0,
+          "amplitude": 0.024310620539550732
+        },
+        {
+          "t": 150.0,
+          "amplitude": 0.024309682976188997
+        },
+        {
+          "t": 200.0,
+          "amplitude": 0.0243087982159623
+        },
+        {
+          "t": 250.0,
+          "amplitude": 0.024307963279732035
+        },
+        {
+          "t": 300.0,
+          "amplitude": 0.024307175357020008
+        },
+        {
+          "t": 350.0,
+          "amplitude": 0.024306431796397
+        },
+        {
+          "t": 400.0,
+          "amplitude": 0.024305730096426368
+        },
+        {
+          "t": 450.0,
+          "amplitude": 0.02430506789712735
+        },
+        {
+          "t": 500.0,
+          "amplitude": 0.02430444297193225
+        }
+      ],
+      "state_file": "state_offset_M1024_delta0.00125_dt0.01_T500.npz"
+    },
+    {
+      "M": 1024,
+      "delta_chi": 0.0025,
+      "dt": 0.01,
+      "T": 500.0,
+      "initialization": "offset",
+      "A_numeric": 0.03434466697005207,
+      "coefficient_ratio": 2.1194412843491803,
+      "amplitude_trapezoid": 0.03434466697005207,
+      "amplitude_measurement_difference": 0.0,
+      "terminal_residual_max": 4.072980631103076e-08,
+      "terminal_amplitude_derivative": -3.83450549333586e-08,
+      "min_u": 0.9665738595297843,
+      "min_v": 0.9945187167264746,
+      "runtime_seconds": 4.069589030000088,
+      "trace": [
+        {
+          "t": 50.0,
+          "amplitude": 0.03437517615979401
+        },
+        {
+          "t": 100.0,
+          "amplitude": 0.03437001659378001
+        },
+        {
+          "t": 150.0,
+          "amplitude": 0.03436542322009614
+        },
+        {
+          "t": 200.0,
+          "amplitude": 0.03436133371555648
+        },
+        {
+          "t": 250.0,
+          "amplitude": 0.034357692656752384
+        },
+        {
+          "t": 300.0,
+          "amplitude": 0.034354450747991115
+        },
+        {
+          "t": 350.0,
+          "amplitude": 0.03435156413731113
+        },
+        {
+          "t": 400.0,
+          "amplitude": 0.03434899381018716
+        },
+        {
+          "t": 450.0,
+          "amplitude": 0.034346705051822704
+        },
+        {
+          "t": 500.0,
+          "amplitude": 0.03434466697005207
+        }
+      ],
+      "state_file": "state_offset_M1024_delta0.0025_dt0.01_T500.npz"
+    },
+    {
+      "M": 1024,
+      "delta_chi": 0.005,
+      "dt": 0.01,
+      "T": 500.0,
+      "initialization": "offset",
+      "A_numeric": 0.04848066781961763,
+      "coefficient_ratio": 2.1273199707047117,
+      "amplitude_trapezoid": 0.04848066781961763,
+      "amplitude_measurement_difference": 0.0,
+      "terminal_residual_max": 7.384991772637212e-08,
+      "terminal_amplitude_derivative": -6.770913084722108e-08,
+      "min_u": 0.9533142273430493,
+      "min_v": 0.9922765734146474,
+      "runtime_seconds": 3.8462764079999943,
+      "trace": [
+        {
+          "t": 50.0,
+          "amplitude": 0.04858443516463689
+        },
+        {
+          "t": 100.0,
+          "amplitude": 0.0485598481092646
+        },
+        {
+          "t": 150.0,
+          "amplitude": 0.04854037907622582
+        },
+        {
+          "t": 200.0,
+          "amplitude": 0.048524958320603995
+        },
+        {
+          "t": 250.0,
+          "amplitude": 0.048512741318839724
+        },
+        {
+          "t": 300.0,
+          "amplitude": 0.04850306074720395
+        },
+        {
+          "t": 350.0,
+          "amplitude": 0.04849538892247449
+        },
+        {
+          "t": 400.0,
+          "amplitude": 0.04848930834376921
+        },
+        {
+          "t": 450.0,
+          "amplitude": 0.04848448853677194
+        },
+        {
+          "t": 500.0,
+          "amplitude": 0.04848066781961763
+        }
+      ],
+      "state_file": "state_offset_M1024_delta0.005_dt0.01_T500.npz"
+    },
+    {
+      "M": 1024,
+      "delta_chi": 0.01,
+      "dt": 0.01,
+      "T": 500.0,
+      "initialization": "offset",
+      "A_numeric": 0.068316579360876,
+      "coefficient_ratio": 2.1426329244769766,
+      "amplitude_trapezoid": 0.06831657936087601,
+      "amplitude_measurement_difference": 1.3877787807814457e-17,
+      "terminal_residual_max": 4.1816751369076296e-08,
+      "terminal_amplitude_derivative": -3.6878144291790926e-08,
+      "min_u": 0.9351531195235707,
+      "min_v": 0.9891405741182349,
+      "runtime_seconds": 3.7182942060001096,
+      "trace": [
+        {
+          "t": 50.0,
+          "amplitude": 0.06857651672400954
+        },
+        {
+          "t": 100.0,
+          "amplitude": 0.06847790399214856
+        },
+        {
+          "t": 150.0,
+          "amplitude": 0.06841622375510295
+        },
+        {
+          "t": 200.0,
+          "amplitude": 0.06837759287805578
+        },
+        {
+          "t": 250.0,
+          "amplitude": 0.0683533779519185
+        },
+        {
+          "t": 300.0,
+          "amplitude": 0.0683381914669623
+        },
+        {
+          "t": 350.0,
+          "amplitude": 0.0683286641028046
+        },
+        {
+          "t": 400.0,
+          "amplitude": 0.0683226858133044
+        },
+        {
+          "t": 450.0,
+          "amplitude": 0.06831893403858717
+        },
+        {
+          "t": 500.0,
+          "amplitude": 0.068316579360876
+        }
+      ],
+      "state_file": "state_offset_M1024_delta0.01_dt0.01_T500.npz",
+      "relative_u_L2": 6.068375417744338e-17,
+      "relative_u_perturbation_L2": 1.249888732769611e-15,
+      "relative_joint_L2": 3.769680777176672e-17
+    }
+  ],
+  "table3_offset": [
+    {
+      "M": 128,
+      "delta_chi": 0.01,
+      "dt": 0.01,
+      "T": 500.0,
+      "initialization": "offset",
+      "A_numeric": 0.06831657936087596,
+      "coefficient_ratio": 2.1426329244769797,
+      "amplitude_trapezoid": 0.06831657936087596,
+      "amplitude_measurement_difference": 0.0,
+      "terminal_residual_max": 4.181675057091492e-08,
+      "terminal_amplitude_derivative": -3.6878144260565904e-08,
+      "min_u": 0.9351531195381851,
+      "min_v": 0.9891405741183708,
+      "runtime_seconds": 2.1333352770000147,
+      "trace": [
+        {
+          "t": 50.0,
+          "amplitude": 0.0685765167240093
+        },
+        {
+          "t": 100.0,
+          "amplitude": 0.06847790399214837
+        },
+        {
+          "t": 150.0,
+          "amplitude": 0.06841622375510296
+        },
+        {
+          "t": 200.0,
+          "amplitude": 0.06837759287805577
+        },
+        {
+          "t": 250.0,
+          "amplitude": 0.06835337795191852
+        },
+        {
+          "t": 300.0,
+          "amplitude": 0.0683381914669625
+        },
+        {
+          "t": 350.0,
+          "amplitude": 0.06832866410280453
+        },
+        {
+          "t": 400.0,
+          "amplitude": 0.06832268581330427
+        },
+        {
+          "t": 450.0,
+          "amplitude": 0.06831893403858685
+        },
+        {
+          "t": 500.0,
+          "amplitude": 0.06831657936087596
+        }
+      ],
+      "state_file": "state_offset_M128_delta0.01_dt0.01_T500.npz",
+      "relative_u_L2": 1.0757456637886422e-11,
+      "relative_u_perturbation_L2": 2.215687547219968e-10,
+      "relative_joint_L2": 6.212703534692494e-12
+    },
+    {
+      "M": 512,
+      "delta_chi": 0.01,
+      "dt": 0.01,
+      "T": 500.0,
+      "initialization": "offset",
+      "A_numeric": 0.06831657936087623,
+      "coefficient_ratio": 2.142632924476962,
+      "amplitude_trapezoid": 0.06831657936087623,
+      "amplitude_measurement_difference": 0.0,
+      "terminal_residual_max": 4.1816750760217354e-08,
+      "terminal_amplitude_derivative": -3.68781443195465e-08,
+      "min_u": 0.9351531195235705,
+      "min_v": 0.9891405741182349,
+      "runtime_seconds": 2.8851141089999146,
+      "trace": [
+        {
+          "t": 50.0,
+          "amplitude": 0.06857651672400941
+        },
+        {
+          "t": 100.0,
+          "amplitude": 0.06847790399214843
+        },
+        {
+          "t": 150.0,
+          "amplitude": 0.06841622375510298
+        },
+        {
+          "t": 200.0,
+          "amplitude": 0.06837759287805577
+        },
+        {
+          "t": 250.0,
+          "amplitude": 0.0683533779519186
+        },
+        {
+          "t": 300.0,
+          "amplitude": 0.06833819146696246
+        },
+        {
+          "t": 350.0,
+          "amplitude": 0.06832866410280461
+        },
+        {
+          "t": 400.0,
+          "amplitude": 0.06832268581330438
+        },
+        {
+          "t": 450.0,
+          "amplitude": 0.06831893403858724
+        },
+        {
+          "t": 500.0,
+          "amplitude": 0.06831657936087623
+        }
+      ],
+      "state_file": "state_offset_M512_delta0.01_dt0.01_T500.npz",
+      "relative_u_L2": 2.2881319729259504e-16,
+      "relative_u_perturbation_L2": 4.7128105550086365e-15,
+      "relative_joint_L2": 1.3858864978486925e-16
+    },
+    {
+      "M": 1024,
+      "delta_chi": 0.01,
+      "dt": 0.01,
+      "T": 500.0,
+      "initialization": "offset",
+      "A_numeric": 0.068316579360876,
+      "coefficient_ratio": 2.1426329244769766,
+      "amplitude_trapezoid": 0.06831657936087601,
+      "amplitude_measurement_difference": 1.3877787807814457e-17,
+      "terminal_residual_max": 4.1816751369076296e-08,
+      "terminal_amplitude_derivative": -3.6878144291790926e-08,
+      "min_u": 0.9351531195235707,
+      "min_v": 0.9891405741182349,
+      "runtime_seconds": 3.7182942060001096,
+      "trace": [
+        {
+          "t": 50.0,
+          "amplitude": 0.06857651672400954
+        },
+        {
+          "t": 100.0,
+          "amplitude": 0.06847790399214856
+        },
+        {
+          "t": 150.0,
+          "amplitude": 0.06841622375510295
+        },
+        {
+          "t": 200.0,
+          "amplitude": 0.06837759287805578
+        },
+        {
+          "t": 250.0,
+          "amplitude": 0.0683533779519185
+        },
+        {
+          "t": 300.0,
+          "amplitude": 0.0683381914669623
+        },
+        {
+          "t": 350.0,
+          "amplitude": 0.0683286641028046
+        },
+        {
+          "t": 400.0,
+          "amplitude": 0.0683226858133044
+        },
+        {
+          "t": 450.0,
+          "amplitude": 0.06831893403858717
+        },
+        {
+          "t": 500.0,
+          "amplitude": 0.068316579360876
+        }
+      ],
+      "state_file": "state_offset_M1024_delta0.01_dt0.01_T500.npz",
+      "relative_u_L2": 6.068375417744338e-17,
+      "relative_u_perturbation_L2": 1.249888732769611e-15,
+      "relative_joint_L2": 3.769680777176672e-17
+    },
+    {
+      "M": 2048,
+      "delta_chi": 0.01,
+      "dt": 0.01,
+      "T": 500.0,
+      "initialization": "offset",
+      "A_numeric": 0.06831657936087591,
+      "coefficient_ratio": 2.142632924476982,
+      "amplitude_trapezoid": 0.06831657936087591,
+      "amplitude_measurement_difference": 0.0,
+      "terminal_residual_max": 4.1816748760349576e-08,
+      "terminal_amplitude_derivative": -3.687814427444369e-08,
+      "min_u": 0.9351531195235708,
+      "min_v": 0.9891405741182349,
+      "runtime_seconds": 5.780997175999801,
+      "trace": [
+        {
+          "t": 50.0,
+          "amplitude": 0.06857651672400936
+        },
+        {
+          "t": 100.0,
+          "amplitude": 0.06847790399214851
+        },
+        {
+          "t": 150.0,
+          "amplitude": 0.06841622375510299
+        },
+        {
+          "t": 200.0,
+          "amplitude": 0.0683775928780557
+        },
+        {
+          "t": 250.0,
+          "amplitude": 0.06835337795191844
+        },
+        {
+          "t": 300.0,
+          "amplitude": 0.06833819146696217
+        },
+        {
+          "t": 350.0,
+          "amplitude": 0.06832866410280453
+        },
+        {
+          "t": 400.0,
+          "amplitude": 0.06832268581330428
+        },
+        {
+          "t": 450.0,
+          "amplitude": 0.06831893403858691
+        },
+        {
+          "t": 500.0,
+          "amplitude": 0.06831657936087591
+        }
+      ],
+      "state_file": "state_offset_M2048_delta0.01_dt0.01_T500.npz",
+      "relative_u_L2": 0.0,
+      "relative_u_perturbation_L2": 0.0,
+      "relative_joint_L2": 0.0
+    }
+  ],
+  "verification": {
+    "positive_u_v": true,
+    "amplitude_quadrature_agreement": 1.3877787807814457e-17,
+    "spatial_amplitude_range_critical": 6.938893903907228e-17,
+    "spatial_amplitude_range_offset": 3.191891195797325e-16,
+    "rounding_match_table2_amplitudes": true,
+    "rounding_match_table2_ratios": true,
+    "rounding_match_table4": true
+  }
+}

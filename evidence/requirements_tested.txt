@@ -1,0 +1,6 @@
+# Versions observed during the CPU audit; install torch for the intended platform.
+# Python 3.12.14
+numpy==2.3.5
+scipy==1.17.0
+matplotlib==3.10.8
+torch==2.15.0

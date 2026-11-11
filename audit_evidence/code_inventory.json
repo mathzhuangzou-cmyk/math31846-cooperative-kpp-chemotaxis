@@ -1,0 +1,188 @@
+[
+  {
+    "file": "1.py",
+    "lines": 1160,
+    "functions": [
+      "ModelParams",
+      "RunConfig",
+      "preset_config",
+      "quartic_coefficients",
+      "chi_of_mu",
+      "continuous_critical_data",
+      "select_mode",
+      "chi2_data",
+      "dominant_linear_mode",
+      "SpectralIMEX1D",
+      "fit_log_growth_rate",
+      "threshold_crossing_run",
+      "initialize_branch_state",
+      "stationary_branch_run",
+      "ensure_output_dir",
+      "write_csv",
+      "save_dispersion_plot",
+      "save_mode_selection_data_and_plots",
+      "save_crossing_outputs",
+      "save_branch_outputs",
+      "device_description",
+      "parse_args",
+      "main"
+    ]
+  },
+  {
+    "file": "2.py",
+    "lines": 378,
+    "functions": [
+      "load_task16_module",
+      "write_csv",
+      "time_convergence",
+      "branch_prediction",
+      "spatial_resolution",
+      "main"
+    ]
+  },
+  {
+    "file": "3.1.py",
+    "lines": 292,
+    "functions": [
+      "load_task16",
+      "save_csv",
+      "initialize_center_manifold_state",
+      "run"
+    ]
+  },
+  {
+    "file": "3.py",
+    "lines": 226,
+    "functions": [
+      "load_task16",
+      "save_csv",
+      "initialize_state",
+      "continuation"
+    ]
+  },
+  {
+    "file": "4.1.py",
+    "lines": 1120,
+    "functions": [
+      "read_csv",
+      "save_figure",
+      "panel_label",
+      "chi_of_mu",
+      "plot_dispersion",
+      "figure_dispersion",
+      "plot_threshold_growth",
+      "figure_threshold_growth",
+      "get_time_data",
+      "plot_time_convergence",
+      "figure_time_convergence",
+      "get_branch_data",
+      "plot_branch",
+      "figure_branch",
+      "figure_overview",
+      "main"
+    ]
+  },
+  {
+    "file": "4.2.py",
+    "lines": 441,
+    "functions": [
+      "read_csv",
+      "save_figure",
+      "get_branch_data",
+      "plot_branch",
+      "figure_branch",
+      "main"
+    ]
+  },
+  {
+    "file": "4.py",
+    "lines": 248,
+    "functions": [
+      "read_csv",
+      "figure_dispersion",
+      "figure_threshold_growth",
+      "figure_time_convergence",
+      "figure_branch",
+      "main"
+    ]
+  },
+  {
+    "file": "5.py",
+    "lines": 89,
+    "functions": [
+      "write_table",
+      "main"
+    ]
+  },
+  {
+    "file": "6.1.py",
+    "lines": 414,
+    "functions": [
+      "chi_of_mu",
+      "main"
+    ]
+  },
+  {
+    "file": "6.py",
+    "lines": 185,
+    "functions": [
+      "chi_of_mu",
+      "main"
+    ]
+  },
+  {
+    "file": "7.1.py",
+    "lines": 939,
+    "functions": [
+      "load_task16_module",
+      "AuditConfig",
+      "preset_config",
+      "validate_config",
+      "choose_device",
+      "write_csv",
+      "save_figure",
+      "relative_l2",
+      "panel_label",
+      "latex_number",
+      "imex_amplification_matrix",
+      "dominant_discrete_eigenvalue",
+      "mode_threshold_bisection",
+      "numerical_threshold_for_grid",
+      "run_branch_state",
+      "run_spatial_audit",
+      "run_time_audit",
+      "make_audit_figure",
+      "make_profile_figure",
+      "write_summary",
+      "parse_args",
+      "main"
+    ]
+  },
+  {
+    "file": "7.py",
+    "lines": 849,
+    "functions": [
+      "load_task16_module",
+      "AuditConfig",
+      "preset_config",
+      "validate_config",
+      "choose_device",
+      "write_csv",
+      "save_figure",
+      "relative_l2",
+      "panel_label",
+      "imex_amplification_matrix",
+      "dominant_discrete_eigenvalue",
+      "mode_threshold_bisection",
+      "numerical_threshold_for_grid",
+      "run_branch_state",
+      "run_spatial_audit",
+      "run_time_audit",
+      "make_audit_figure",
+      "make_profile_figure",
+      "write_summary",
+      "parse_args",
+      "main"
+    ]
+  }
+]

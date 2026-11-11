@@ -1,0 +1,47 @@
+{
+  "torch_version": "2.15.0+cpu",
+  "device": "cpu",
+  "equilibrium_one_step_error": 0.0,
+  "linearized_step_vs_actual_IMEX_matrix_error": 1.2563010527710805e-12,
+  "growth_rate_checks": [
+    {
+      "dtype": "torch.float32",
+      "ratio": 0.98,
+      "continuous": -0.022727949229588023,
+      "old_reported_discrete": -0.022722785197667635,
+      "actual_discrete": -0.02282422306340418,
+      "observed_fit": -0.0073055612181826156
+    },
+    {
+      "dtype": "torch.float32",
+      "ratio": 1.02,
+      "continuous": 0.02254942065979337,
+      "old_reported_discrete": 0.02255450695281326,
+      "actual_discrete": 0.02263983291813579,
+      "observed_fit": 0.021395833070845
+    },
+    {
+      "dtype": "torch.float64",
+      "ratio": 0.98,
+      "continuous": -0.022727949229588023,
+      "old_reported_discrete": -0.022722785197667635,
+      "actual_discrete": -0.02282422306340418,
+      "observed_fit": -0.0228242073529664
+    },
+    {
+      "dtype": "torch.float64",
+      "ratio": 1.02,
+      "continuous": 0.02254942065979337,
+      "old_reported_discrete": 0.02255450695281326,
+      "actual_discrete": 0.02263983291813579,
+      "observed_fit": 0.02263978346911912
+    }
+  ],
+  "short_run_metadata_bug": {
+    "requested_T": 0.1,
+    "dt": 0.02,
+    "old_sim_time": 0.0,
+    "old_residual": "inf",
+    "recomputed_terminal_residual": 0.0009641971207104763
+  }
+}

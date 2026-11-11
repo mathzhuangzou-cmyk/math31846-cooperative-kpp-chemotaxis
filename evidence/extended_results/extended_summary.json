@@ -1,0 +1,8 @@
+{
+  "T500_to_T8000_relative_amplitude_change": 0.0004315116276850533,
+  "T8000_timestep_relative_amplitude_difference": 7.990030718001142e-10,
+  "T8000_grid_relative_amplitude_difference": 3.613120645693635e-14,
+  "alternative_initial_relative_difference": 9.580285089769902e-08,
+  "T500_coefficient_relative_difference": 0.0008132794814822116,
+  "T8000_coefficient_relative_difference": 0.0016771909696771052
+}

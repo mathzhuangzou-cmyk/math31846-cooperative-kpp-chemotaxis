@@ -1,0 +1,14 @@
+[
+  {
+    "initialization": "critical",
+    "full_fft_amplitude": 0.06831692883504946,
+    "real_fft_amplitude": 0.06831692883492961,
+    "absolute_difference": 1.1984857550828565e-13
+  },
+  {
+    "initialization": "offset",
+    "full_fft_amplitude": 0.06831657936099528,
+    "real_fft_amplitude": 0.06831657936087596,
+    "absolute_difference": 1.193212195715887e-13
+  }
+]

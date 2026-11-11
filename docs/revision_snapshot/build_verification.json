@@ -1,0 +1,27 @@
+{
+  "manuscript_pages": 35,
+  "response_pdf_pages": 16,
+  "trace_entries": 34,
+  "original_numbered_objects_unchanged": 106,
+  "theorem_statements_unchanged_this_round": 7,
+  "references_unchanged_this_round": 29,
+  "numerical_csv_files_byte_identical": [
+    "table2_offset_recomputed.csv",
+    "table3_offset_recomputed.csv",
+    "table3_critical_recomputed.csv",
+    "extended_checks.csv",
+    "table4_recomputed.csv"
+  ],
+  "response_all_locations_matched": true,
+  "response_native_equations": 112,
+  "explicit_original_table3_withdrawal": true,
+  "explicit_C3_scope_correction": true,
+  "undefined_references": false,
+  "multiply_defined_labels": false,
+  "overfull_horizontal_boxes": false,
+  "numerical_experiments_rerun_this_round": false,
+  "journal_upload_performed": false,
+  "delivery_format": "individual files; no ZIP generated",
+  "visual_review": "Changed manuscript pages 29-35 and changed response pages 1-4,6-16 reviewed at rendered page scale; unchanged pages match previously reviewed renderings.",
+  "visual_review_passed": true
+}

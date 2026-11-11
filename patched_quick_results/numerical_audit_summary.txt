@@ -1,0 +1,22 @@
+Task 1.9B — Numerical resolution audit
+====================================================
+preset: quick
+device: cpu
+dtype: torch.float64
+L: 10.0
+delta_chi: 0.005
+spatial_t_final: 50.0
+time_t_final: 5.0
+Profile metric: endpoint-weighted joint perturbation L2 on the common finest grid.
+The comparisons concern finite-time states, not certified equilibria.
+continuous chi_c: 2.452720209264
+finite-domain chi_T: 2.452720334543
+selected mode n_star: 5
+pattern wavelength: 4.000000000000
+chi_2: 2.114392500385
+
+Spatial convergence:
+  coarsest N=256: threshold error=3.552714e-14, state difference=3.277080e-13
+
+Time-step sensitivity:
+  dt=1.000000e-03 relative to finest dt: amplitude difference=6.645659e-09, state difference=8.122374e-09

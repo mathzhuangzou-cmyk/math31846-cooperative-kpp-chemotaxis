@@ -1,0 +1,28 @@
+{
+  "syntax_files": 12,
+  "terminal_metadata": {
+    "sim_time": 0.1,
+    "residual": 0.0009641971205096231
+  },
+  "prolongation_max_error": 2.220446049250313e-16,
+  "corrected_linear_rate": 0.02263983291813579
+}
+
+Running time convergence...
+dt=0.04000, error=1.815964e-04
+dt=0.02000, error=9.041226e-05
+dt=0.01000, error=4.511029e-05
+dt=0.00500, error=2.253127e-05
+
+Generating branch prediction table...
+delta=0.001250, A=2.43143241e-02
+delta=0.002500, A=3.43856469e-02
+delta=0.005000, A=4.86286482e-02
+delta=0.010000, A=6.87712938e-02
+
+Listing grid sizes only (no PDE spatial-convergence test)...
+M=256
+M=512
+M=1024
+M=2048
+Generated tables from model and results_task17B_advanced/branch_continuation_advanced.csv
