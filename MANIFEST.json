@@ -8,13 +8,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 7985,
-      "sha256": "704d64832485a2c02ea6afa1ccc4134f0ee36810b50b1dbc12b16bc6e67ac6a2"
+      "bytes": 9290,
+      "sha256": "0d9d296ce373480c47ef543d72bc447935fa958d236f692a3588562e749df486"
     },
     {
       "path": "README_CN.md",
-      "bytes": 4436,
-      "sha256": "b0130e2416ce00dfa61c2462b849686ff98eec9b540d40db9b0585e9f4bc2ca3"
+      "bytes": 5444,
+      "sha256": "ce2581efd8a829a63316dbfbb6f3e48f80d3f13a0a444e2a737c56363f3409a1"
     },
     {
       "path": "archived_results/results_task16_kpp_chemotaxis/branch_results.csv",
@@ -230,6 +230,16 @@
       "path": "evidence/Concern4_verification_CN.txt",
       "bytes": 8597,
       "sha256": "18710193d185c90197230ded6041ca9c8ac1bd49dafd3e61dbc72c5fb78c5c23"
+    },
+    {
+      "path": "evidence/R2_benchmark_precision_check.json",
+      "bytes": 2078,
+      "sha256": "2caecbb4057034067f86e6fd16f51be198fe3a9ad398ee2a897e6be255a7e660"
+    },
+    {
+      "path": "evidence/R2_benchmark_precision_check.py",
+      "bytes": 5435,
+      "sha256": "af4b31d7133419c2fd69439fd732a4c8223a22668791069fd577d43b3b0a8ee2"
     },
     {
       "path": "evidence/audit_results.json",
@@ -458,8 +468,13 @@
     },
     {
       "path": "figures/figure1_dispersion_real_high.png",
-      "bytes": 340491,
-      "sha256": "b8203db3b4694e19e2a9f0fc64045ace3149265e92c3df447d607f31c7b63a15"
+      "bytes": 215501,
+      "sha256": "ac2b4393c0eb4a97b862092b8f7e24f38434772d7b8bf749295f6e46614ffe4d"
+    },
+    {
+      "path": "figures/figure1_modal_threshold.pdf",
+      "bytes": 53423,
+      "sha256": "d5bc8aae38070d789bc52283b0da53677df79e0966b4f0457aed33172e40b29f"
     },
     {
       "path": "figures/figure4_bifurcation_branch.png",
@@ -673,8 +688,8 @@
     },
     {
       "path": "requirements.txt",
-      "bytes": 128,
-      "sha256": "029aba79e11324fc46a791f8798d6b35e29af6fe26bc2191e97a7056ab1baf99"
+      "bytes": 192,
+      "sha256": "357fd7683de6541dca3d106b7310d78f4d56ecf3bbad8f3cf1a96ee75347a13a"
     },
     {
       "path": "requirements_torch_tested.txt",
@@ -686,5 +701,6 @@
       "bytes": 1321,
       "sha256": "4719e71a049b6b78a686230059635900560f37ac2437cde33f60aefbfa311d84"
     }
-  ]
+  ],
+  "revision_note": "Reviewer 2 benchmark-precision and Figure 1 terminology update; historical PDE evidence unchanged"
 }

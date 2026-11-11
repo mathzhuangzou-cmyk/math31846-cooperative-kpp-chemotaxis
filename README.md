@@ -6,6 +6,28 @@ Repository: [https://github.com/mathzhuangzou-cmyk/math31846-cooperative-kpp-che
 For a fixed version, cite the full commit SHA and use its commit permalink. No release tag or DOI is assigned. Uploading this repository does not constitute submission to the journal.
 Chinese instructions: [README_CN.md](README_CN.md).
 
+## Reviewer 2 clarification update
+
+The R1 numerical snapshot remains available at commit `6456d2b89d6cbebcb66ea2064128309524bf11fe`.
+This update adds `evidence/R2_benchmark_precision_check.py` and its saved JSON output.
+It documents binary64 arithmetic, Brent root finding on `[0.001, 100]` with `xtol=1e-14`
+and the SciPy default `rtol=4*eps`, and an independent 60-decimal-digit arithmetic check
+using exact decimal benchmark inputs. The displayed continuous critical value is
+`mu_c=2.468635740033` at 12 decimal places; the previous last digit was corrected.
+This does not change the selected mode or the threshold conclusions.
+
+Figure 1 is regenerated with the title “Modal-threshold curve and mode selection at onset”.
+The current PNG and vector PDF are in `figures/`. Historical source scripts remain
+unchanged for provenance; use the following command for the current Figure 1:
+
+```bash
+python evidence/R2_benchmark_precision_check.py --output rerun_outputs/reviewer2
+```
+
+The added dependency is `mpmath==1.3.0`. This command recomputes algebraic constants
+and Figure 1 only; it does not rerun PDE trajectories or change any saved table data.
+Arithmetic checks and root tolerances are not PDE discretization-error bounds.
+
 ## Scope and status
 
 The bundle contains all 12 supplied original Python scripts, their 12 audited counterparts, the independent reproduction and cross-check scripts, the nonlinear long-time checks, the revised Figure 2 plotting script, and saved numerical evidence. Original and corrected files intentionally coexist. These are scientific computation codes, not the document-production or storage-service automation.
@@ -91,12 +113,10 @@ It writes `figures/figure4_bifurcation_branch.png` and `.pdf`. The filename is h
 Figure 1:
 
 ```bash
-cd patched_project
-python 6.1.py
-cd ..
+python evidence/R2_benchmark_precision_check.py --output rerun_outputs/reviewer2
 ```
 
-It writes `patched_project/figures_task19/figure1_dispersion_real_high.png`.
+It writes the updated Figure 1 PNG, vector PDF, and precision-check JSON to `rerun_outputs/reviewer2/`.
 Earlier plotting scripts remain in the archive but may carry old labels. Use the two commands above for the current manuscript figures.
 
 ## Original/corrected project checks

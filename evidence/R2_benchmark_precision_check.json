@@ -1,0 +1,60 @@
+{
+  "purpose": "Reviewer 2 comment 4 benchmark arithmetic check and Figure 1 regeneration",
+  "numpy_version": "2.3.5",
+  "scipy_version": "1.17.0",
+  "mpmath_version": "1.3.0",
+  "arithmetic": "IEEE 754 binary64",
+  "root_solver": "scipy.optimize.brentq",
+  "bracket": [
+    0.001,
+    100.0
+  ],
+  "xtol": 1e-14,
+  "rtol": 8.881784197001252e-16,
+  "binary64": {
+    "mu_c": 2.4686357400334997,
+    "chi_c": 2.452720209263587,
+    "k_c": 1.5711892756868917,
+    "Lambda_c": 3.9989996141188695,
+    "mu_5": 2.4674011002723395,
+    "chi_T": 2.4527203345427138,
+    "chi2": 2.1143925003845543
+  },
+  "display_12_decimal_places": {
+    "mu_c": "2.468635740033",
+    "chi_c": "2.452720209264",
+    "k_c": "1.571189275687",
+    "Lambda_c": "3.998999614119",
+    "mu_5": "2.467401100272",
+    "chi_T": "2.452720334543",
+    "chi2": "2.114392500385"
+  },
+  "high_precision_decimal_digits": 60,
+  "high_precision_exact_decimal_inputs": true,
+  "high_precision_values": {
+    "mu_c": "2.468635740033499800313629576384664439909924704767338627",
+    "chi_c": "2.452720209263587304964046857497820351586924266546681559",
+    "k_c": "1.571189275686891837026385373147096512623327742390223654",
+    "Lambda_c": "3.998999614118869469571303103000328488735879969270378876",
+    "mu_5": "2.467401100272339654708622749969037783828424851810197657",
+    "chi_T": "2.45272033454271393510760833458916439554631818361312773",
+    "chi2": "2.114392500384554039414046320800873184994834794434520347"
+  },
+  "absolute_difference_from_high_precision": {
+    "mu_c": 7.445965803603886e-17,
+    "chi_c": 1.683030023609206e-16,
+    "k_c": 1.3054141426354403e-16,
+    "Lambda_c": 3.600329075590946e-17,
+    "mu_5": 1.5663238771849278e-16,
+    "chi_T": 1.7026048669657612e-16,
+    "chi2": 2.4596126956437506e-16
+  },
+  "quartic_residual_binary64": 0.0,
+  "correction": {
+    "quantity": "mu_c",
+    "old_display": "2.468635740034",
+    "new_display": "2.468635740033"
+  },
+  "pde_simulations_rerun": false,
+  "note": "Root tolerances and high-precision arithmetic checks do not certify PDE discretization error."
+}

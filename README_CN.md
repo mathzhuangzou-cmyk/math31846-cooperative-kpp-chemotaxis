@@ -1,6 +1,6 @@
 # Math-31846 全部科研代码与复现记录
 
-本包对应 2026-11-11 的返修稿，包含原始 12 个脚本、经核查的 12 个修正版，以及独立复算、完整 FFT 交叉检查、长时间检查和当前图 2 的重绘代码。原始版本和修正版均保留，以便逐项追溯。所有科研脚本合计 33 份；另有 1 份新增的文件完整性检查脚本。
+本包对应 2026-11-11 的返修稿，包含原始 12 个脚本、经核查的 12 个修正版，以及独立复算、完整 FFT 交叉检查、长时间检查和当前图 2 的重绘代码。原始版本和修正版均保留，以便逐项追溯。所有科研脚本合计 34 份；另有 1 份新增的文件完整性检查脚本。
 
 ## 先使用哪些目录
 
@@ -20,7 +20,7 @@
 克隆仓库或解压下载文件后，进入包含 `README.md` 和 `verify_package.py` 的仓库根目录。不要把数字命名脚本重命名或分散到不同目录。
 
 1. `python verify_package.py`：核对全部文件校验值、Python 语法和源码数量。
-2. `python -m pip install -r requirements.txt`：安装独立复算需要的 NumPy、SciPy 和 Matplotlib。原项目和 PyTorch 核查另需安装适配本机的 PyTorch，已测试版本见 `requirements_torch_tested.txt`。
+2. `python -m pip install -r requirements.txt`：安装独立复算需要的 NumPy、SciPy、Matplotlib 和 mpmath。原项目和 PyTorch 核查另需安装适配本机的 PyTorch，已测试版本见 `requirements_torch_tested.txt`。
 3. 按英文 `README.md` 中逐项命令运行。它明确列出工作目录，Windows/PyCharm 终端也可以照此执行。
 
 本轮没有重新运行所有长时间 PDE 实验。已保存的正式结果原样收入；本次打包仅重新做文件、语法、短程求解器及绘图入口检查。具体结果见 `docs/PACKAGE_VALIDATION.json`。
@@ -29,7 +29,7 @@
 
 原项目 7.1.py 的 quick 预设与 paper 预设都不能直接替代当前表 3 的基准设置。2.py 的空间部分只有网格配置，不是空间收敛结果。当前表 3 请运行 evidence/reproduce_concern1.py。
 
-图 2 请使用 evidence/regenerate_branch_figure.py；图 1 请在 patched_project 目录运行 6.1.py。旧绘图脚本保留用于追溯，其旧标签不应替代当前正文图件。
+图 2 请使用 evidence/regenerate_branch_figure.py；图 1 请运行 evidence/R2_benchmark_precision_check.py --output rerun_outputs/reviewer2。旧绘图脚本保留用于追溯，其旧标签不应替代当前正文图件。
 
 ## 与当前返修的关系
 
@@ -45,6 +45,23 @@
 
 与返修稿对应的固定版本应使用核验后的完整提交号及其永久链接。当前没有创建 release tag 或 DOI。上传 GitHub 不等于已提交期刊。中文说明及英文替换文字见 docs/GITHUB_PUBLICATION_NOTES_CN.txt。
 
-`docs/PACKAGE_VALIDATION.json` 保留本地 ZIP 打包时的历史核查结果，其中 `github_published: false` 对应上传前的状态。本次上传仅调整仓库说明及其校验清单，科研源码和数值结果保持原样。尚未选择软件许可证；公开可访问不等于已经授予开源使用许可。
+`docs/PACKAGE_VALIDATION.json` 保留本地 ZIP 打包时的历史核查结果，其中 `github_published: false` 对应上传前的状态。首次上传保留了科研源码和数值结果；本轮新增精度核查脚本并更新图1，原始与已核查的12份项目脚本及 PDE 表格数据保持不变。尚未选择软件许可证；公开可访问不等于已经授予开源使用许可。
 
 审稿人要求代码随返修稿提供。建议公开 GitHub 仓库作为长期入口，同时把同一版本 ZIP 随返修稿作为补充材料提交；实际完成后才能写“已提供”。
+
+## 第二位审稿人的补充修订
+
+第一位审稿人的数值快照保留在提交 `6456d2b89d6cbebcb66ea2064128309524bf11fe`。
+新增 `evidence/R2_benchmark_precision_check.py` 及其 JSON 输出，记录双精度、
+Brent 求根区间 `[0.001,100]`、`xtol=1e-14` 和默认 `rtol=4*eps`，并用精确十进制参数进行60位精度复核。
+连续临界点保留12位小数修正为 `mu_c=2.468635740033`；临界模态和阈值结论不变。
+图1的图内标题已改为 modal-threshold curve，当前 PNG 和矢量 PDF 位于 `figures/`。
+历史源脚本保留，当前图1请运行：
+
+```bash
+python evidence/R2_benchmark_precision_check.py --output rerun_outputs/reviewer2
+```
+
+新增依赖为 `mpmath==1.3.0`。该命令仅复核代数常数并绘制图1，不重跑 PDE 轨迹，
+不改动任何已保存表格数据；求根容差不代表 PDE 离散误差界。
+
